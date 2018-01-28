@@ -19,9 +19,9 @@ package model
 import (
 	"fmt"
 
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/processing/snippets/client"
-	"github.com/verizonlabs/northstar/processing/snippets/model"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/processing/snippets/client"
+	"github.com/lavaorg/northstar/processing/snippets/model"
 )
 
 const (

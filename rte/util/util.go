@@ -19,12 +19,12 @@ package util
 import (
 	"errors"
 	"github.com/satori/go.uuid"
+	"github.com/verizonlabs/northstar/pkg/b64"
+	"github.com/verizonlabs/northstar/pkg/file"
+	"github.com/verizonlabs/northstar/pkg/mlog"
 	"net/url"
 	"os"
 	"os/exec"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/b64"
-	"github.com/verizonlabs/northstar/pkg/file"
 )
 
 const (
@@ -67,12 +67,22 @@ func GetSnippetCode(fullUrl string, code string) (string, error) {
 	case "http":
 		mlog.Debug("HTTP schema detected")
 		fileName := TMP_DIRECTORY + "/" + "rte-" + uuid.NewV4().String()
-		err := file.DownloadFromHttpToLocal(parsed.Host, parsed.Path, fileName)
+
+		//		err := file.DownloadFromHttpToLocal(parsed.Host, parsed.Path, fileName)
+		resp, err := management.Get("http://"+host, path)
+		if err == nil {
+			err := ioutil.WriteFile(dest, resp, 0644)
+		}
 		if err != nil {
 			mlog.Error("Failed to download file: %v", err)
 			return "", err
 		}
-		return file.ReadFile(fileName)
+		b, err := ioutil.ReadFile(file)
+		if err != nil {
+			return "", err
+		}
+
+		return string(b), nil
 	default:
 		return "", errors.New("Unknow schema detected: " + parsed.Scheme)
 	}
