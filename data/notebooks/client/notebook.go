@@ -18,10 +18,10 @@ package client
 
 import (
 	"encoding/json"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/notebooks/model"
-	"github.com/verizonlabs/northstar/data/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/notebooks/model"
+	"github.com/lavaorg/northstar/data/util"
 )
 
 const NotebooksURI = util.DataBasePath + "/notebooks"

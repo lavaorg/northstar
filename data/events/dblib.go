@@ -25,12 +25,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gocql/gocql"
+	"github.com/lavaorg/lrt/x/database"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/events/model"
+	"github.com/lavaorg/northstar/data/util"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/database"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/events/model"
-	"github.com/verizonlabs/northstar/data/util"
 )
 
 var (
@@ -81,7 +81,13 @@ func addEvent(c *gin.Context) {
 	}
 
 	if event.Id == "" {
-		event.Id = uuid.NewV4().String()
+		vuuid, err := uuid.NewV4()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, management.GetInternalError(err.Error()))
+			ErrInsertEvent.Incr()
+			return
+		}
+		event.Id = vuuid.String()
 	}
 
 	session, err := getSession()

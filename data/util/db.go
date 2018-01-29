@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/gocql/gocql"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	dktUtils "github.com/verizonlabs/northstar/pkg/utils"
-	"github.com/verizonlabs/northstar/data/config"
+	"github.com/lavaorg/lrt/x/mlog"
+	dktUtils "github.com/lavaorg/lrt/x/utils"
+	"github.com/lavaorg/northstar/data/config"
 )
 
 type DB struct {

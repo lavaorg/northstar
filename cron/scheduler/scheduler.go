@@ -17,9 +17,9 @@ limitations under the License.
 package scheduler
 
 import (
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/cron/model"
 	"github.com/robfig/cron"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/cron/model"
 )
 
 type Scheduler interface {

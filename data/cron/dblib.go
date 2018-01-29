@@ -24,12 +24,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gocql/gocql"
-	"github.com/verizonlabs/northstar/pkg/database"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/config"
-	"github.com/verizonlabs/northstar/data/cron/model"
-	"github.com/verizonlabs/northstar/data/util"
+	"github.com/lavaorg/lrt/x/database"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/config"
+	"github.com/lavaorg/northstar/data/cron/model"
+	"github.com/lavaorg/northstar/data/util"
 )
 
 var (

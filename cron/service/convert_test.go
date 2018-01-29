@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
+	jobDataModel "github.com/lavaorg/northstar/data/cron/model"
+	"github.com/lavaorg/northstar/processing/snippets/client"
 	"github.com/satori/go.uuid"
-	jobDataModel "github.com/verizonlabs/northstar/data/cron/model"
-	"github.com/verizonlabs/northstar/processing/snippets/client"
 )
 
 const jobsCount = 10

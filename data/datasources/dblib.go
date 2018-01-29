@@ -26,12 +26,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gocql/gocql"
+	"github.com/lavaorg/lrt/x/database"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/datasources/model"
+	"github.com/lavaorg/northstar/data/util"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/database"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/datasources/model"
-	"github.com/verizonlabs/northstar/data/util"
 )
 
 var (
@@ -93,7 +93,13 @@ func addDatasource(c *gin.Context) {
 		return
 	}
 
-	id := uuid.NewV4().String()
+	vuuid, err := uuid.NewV4()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, management.GetExternalError(err.Error()))
+		ErrInsertDatasource.Incr()
+		return
+	}
+	id := vuuid.String()
 	err = session.Query(`INSERT INTO `+Datasources+`(`+columns+`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 		id, accountId, datasource.Name, datasource.Description, datasource.Protocol, datasource.Host,
 		datasource.Port, datasource.Options, time.Now().In(time.UTC), nil).Exec()

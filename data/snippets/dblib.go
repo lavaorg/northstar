@@ -26,12 +26,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gocql/gocql"
+	"github.com/lavaorg/lrt/x/database"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/snippets/model"
+	"github.com/lavaorg/northstar/data/util"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/database"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/snippets/model"
-	"github.com/verizonlabs/northstar/data/util"
 )
 
 var (
@@ -86,7 +86,13 @@ func addSnippet(c *gin.Context) {
 	}
 
 	if snippet.Id == "" {
-		snippet.Id = uuid.NewV4().String()
+		vuuid, err := uuid.NewV4()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, management.GetExternalError(err.Error()))
+			ErrInsertSnippet.Incr()
+			return
+		}
+		snippet.Id = vuuid.String()
 	}
 
 	err = addSnippetQuery(accountId, snippet)

@@ -19,11 +19,11 @@ package client
 import (
 	"encoding/json"
 	"fmt"
-	lb "github.com/verizonlabs/northstar/pkg/httpclientlb"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/invocations/model"
-	"github.com/verizonlabs/northstar/data/util"
+	lb "github.com/lavaorg/lrt/x/httpclientlb"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/invocations/model"
+	"github.com/lavaorg/northstar/data/util"
 )
 
 const BASE_URI = util.DataBasePath + "/invocations"

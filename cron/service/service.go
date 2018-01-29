@@ -21,16 +21,16 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/cron/model"
+	"github.com/lavaorg/northstar/cron/scheduler"
+	"github.com/lavaorg/northstar/cron/util"
+	cronDataClient "github.com/lavaorg/northstar/data/cron/client"
+	cronDataModel "github.com/lavaorg/northstar/data/cron/model"
+	snippetsDataClient "github.com/lavaorg/northstar/data/snippets/client"
+	processingClient "github.com/lavaorg/northstar/processing/snippets/client"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/cron/model"
-	"github.com/verizonlabs/northstar/cron/scheduler"
-	"github.com/verizonlabs/northstar/cron/util"
-	cronDataClient "github.com/verizonlabs/northstar/data/cron/client"
-	cronDataModel "github.com/verizonlabs/northstar/data/cron/model"
-	snippetsDataClient "github.com/verizonlabs/northstar/data/snippets/client"
-	processingClient "github.com/verizonlabs/northstar/processing/snippets/client"
 )
 
 type CronService struct {
@@ -72,7 +72,14 @@ func (cron *CronService) addJob(c *gin.Context) {
 	}
 
 	job.AccountId = accountId
-	job.Id = uuid.NewV4().String()
+	uuid, err := uuid.NewV4()
+	if err != nil {
+		mlog.Error("Failed to create cron job ID: %v", err)
+		c.JSON(http.StatusInternalServerError, management.GetInternalError("Unable to create cron job ID"))
+		ErrInsertJob.Incr()
+		return
+	}
+	job.Id = uuid.String()
 	job.ProcessingClient = cron.processingClient
 
 	_, mErr := cron.snippetsDataClient.GetSnippet(accountId, job.SnippetId)

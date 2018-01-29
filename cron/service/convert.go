@@ -17,9 +17,9 @@ limitations under the License.
 package service
 
 import (
-	"github.com/verizonlabs/northstar/cron/model"
-	jobDataModel "github.com/verizonlabs/northstar/data/cron/model"
-	"github.com/verizonlabs/northstar/processing/snippets/client"
+	"github.com/lavaorg/northstar/cron/model"
+	jobDataModel "github.com/lavaorg/northstar/data/cron/model"
+	"github.com/lavaorg/northstar/processing/snippets/client"
 )
 
 func ConvertJobData(job *jobDataModel.JobData, processing client.Client) *model.Job {

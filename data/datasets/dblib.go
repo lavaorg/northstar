@@ -26,12 +26,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gocql/gocql"
+	"github.com/lavaorg/lrt/x/database"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/datasets/model"
+	"github.com/lavaorg/northstar/data/util"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/database"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/datasets/model"
-	"github.com/verizonlabs/northstar/data/util"
 )
 
 var (
@@ -94,9 +94,13 @@ func addDataset(c *gin.Context) {
 		return
 	}
 
-	id := uuid.NewV4().String()
-	err = session.Query(`INSERT INTO `+Datasets+`(`+columns+`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)`,
-		id, accountId, dataset.DatasourceId, dataset.Name, dataset.Description, dataset.Tables, time.Now().In(time.UTC), nil).Exec()
+	vuuid, err := uuid.NewV4()
+	var id string
+	if err == nil {
+		id = vuuid.String()
+		err = session.Query(`INSERT INTO `+Datasets+`(`+columns+`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)`,
+			id, accountId, dataset.DatasourceId, dataset.Name, dataset.Description, dataset.Tables, time.Now().In(time.UTC), nil).Exec()
+	}
 	if err != nil {
 		em := ""
 		if err == gocql.ErrNoConnections {

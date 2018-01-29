@@ -27,13 +27,13 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/cron/model"
-	"github.com/verizonlabs/northstar/cron/scheduler"
-	"github.com/verizonlabs/northstar/cron/util"
-	cronClient "github.com/verizonlabs/northstar/data/cron/client"
-	"github.com/verizonlabs/northstar/data/snippets/client"
-	snippetsClient "github.com/verizonlabs/northstar/processing/snippets/client"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/cron/model"
+	"github.com/lavaorg/northstar/cron/scheduler"
+	"github.com/lavaorg/northstar/cron/util"
+	cronClient "github.com/lavaorg/northstar/data/cron/client"
+	"github.com/lavaorg/northstar/data/snippets/client"
+	snippetsClient "github.com/lavaorg/northstar/processing/snippets/client"
 )
 
 const (
