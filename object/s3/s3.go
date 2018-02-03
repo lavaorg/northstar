@@ -29,8 +29,11 @@ import (
 
 	"bytes"
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/corehandlers"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/defaults"
+	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/lavaorg/lrt/x/management"
@@ -81,23 +84,28 @@ func NewS3StorageProvider(input *ProviderInput) (StorageProvider, error) {
 	}
 
 	// Modify the default configuration
-	awscfg := defaults.Config()
-	awscfg.Endpoint = input.Host
-	awscfg.Region = "vzlabs"
-	awscfg.Credentials = credentials.NewStaticCredentials(input.UserId, input.Secret, "")
-	awscfg.DisableSSL = true
-	awscfg.DisableParamValidation = false
-	awscfg.S3ForcePathStyle = true
-
+	awscfg := aws.Config{
+		Endpoint:               aws.String(input.Host),
+		Region:                 aws.String("us-east-1"),
+		Credentials:            credentials.NewStaticCredentials(input.UserId, input.Secret, ""),
+		DisableSSL:             aws.Bool(true),
+		DisableParamValidation: aws.Bool(false),
+		S3ForcePathStyle:       aws.Bool(true),
+		Logger: aws.LoggerFunc(func(args ...interface{}) {
+			mlog.Info(fmt.Sprintf("%v", args...))
+		}),
+	}
 	// Debugging
 	if input.DebugFlag {
-		awscfg.LogLevel = uint(1)
-		awscfg.LogHTTPBody = true
+		awscfg.LogLevel = aws.LogLevel(aws.LogDebugWithHTTPBody)
 	}
+
+	// Create a Session with a custom region
+	sess := session.Must(session.NewSession(&awscfg))
 
 	// Create the S3 client using default configuration.
 	awsS3StorageProvider := &S3StorageProvider{
-		S3Storage:  s3.New(nil),
+		S3Storage:  s3.New(sess),
 		downloader: s3manager.NewDownloader(nil),
 		uploader:   s3manager.NewUploader(nil),
 	}
@@ -106,8 +114,8 @@ func NewS3StorageProvider(input *ProviderInput) (StorageProvider, error) {
 	// by default AWS GO SDK only supports S3 Sign Version 4 but EMC ViPr
 	// uses Version 2.
 	awsS3StorageProvider.S3Storage.Handlers.Sign.Clear()
-	awsS3StorageProvider.S3Storage.Handlers.Sign.PushBack(aws.BuildContentLength)
-	awsS3StorageProvider.S3Storage.Handlers.Sign.PushBack(awsS3StorageProvider.signVersion2)
+	awsS3StorageProvider.S3Storage.Handlers.Sign.PushBackNamed(corehandlers.BuildContentLengthHandler)
+	awsS3StorageProvider.S3Storage.Handlers.Sign.PushBack(awsS3StorageProvider.signVersion2Handler)
 	return awsS3StorageProvider, nil
 }
 
@@ -150,7 +158,7 @@ func (S3StorageProvider *S3StorageProvider) Delete(bucketName, fileName string) 
 					Key: aws.String(key),
 				},
 			},
-			Quiet: aws.Boolean(true),
+			Quiet: aws.Bool(true),
 		},
 	}
 	dobjs, err := S3StorageProvider.S3Storage.DeleteObjects(params)
@@ -164,12 +172,12 @@ func (S3StorageProvider *S3StorageProvider) Delete(bucketName, fileName string) 
 }
 
 // Helper method used to sign the S3 request using version 2.
-func (S3StorageProvider *S3StorageProvider) signVersion2(request *aws.Request) {
+func (S3StorageProvider *S3StorageProvider) signVersion2Handler(request *request.Request) {
 	// If the request does not need to be signed ignore the signing of the
 	// request if the AnonymousCredentials object is used.
 	awscfg := defaults.Config()
 	creds := awscfg.Credentials
-	if request.Service.Config.Credentials == credentials.AnonymousCredentials {
+	if request.Config.Credentials == credentials.AnonymousCredentials {
 		return
 	}
 
@@ -186,7 +194,7 @@ func (S3StorageProvider *S3StorageProvider) signVersion2(request *aws.Request) {
 	baseUrl := request.HTTPRequest.URL.String()
 	if baseUrl == "" {
 		// This should not happen. If it does, we should return error.
-		baseUrl = awscfg.Endpoint
+		baseUrl = *awscfg.Endpoint
 	}
 
 	parsedUrl, err := url.Parse(baseUrl)
