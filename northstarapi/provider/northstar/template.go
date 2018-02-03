@@ -24,11 +24,11 @@ import (
 	"time"
 
 	cMap "github.com/orcaman/concurrent-map"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	templates "github.com/verizonlabs/northstar/data/templates/client"
-	templatesModel "github.com/verizonlabs/northstar/data/templates/model"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	templates "github.com/lavaorg/northstar/data/templates/client"
+	templatesModel "github.com/lavaorg/northstar/data/templates/model"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the type used to support operations on NorthStar notebooks.

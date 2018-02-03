@@ -19,7 +19,7 @@ package connection
 import (
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/dpe-stream/master/model"
+	"github.com/lavaorg/northstar/dpe-stream/master/model"
 	"strings"
 )
 

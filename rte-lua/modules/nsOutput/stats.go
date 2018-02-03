@@ -16,7 +16,7 @@ limitations under the License.
 
 package nsOutput
 
-import "github.com/verizonlabs/northstar/pkg/stats"
+import "github.com/lavaorg/lrt/x/stats"
 
 var (
 	nsOutput           = stats.New("nsOutput")

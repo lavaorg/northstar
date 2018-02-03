@@ -21,9 +21,9 @@ import (
 
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/data/snippets/client"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/data/snippets/client"
 )
 
 type DeleteSnippetCmd struct {

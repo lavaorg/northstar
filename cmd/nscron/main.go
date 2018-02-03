@@ -18,13 +18,13 @@ package main
 
 import (
 	"os"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/cron/env"
-	"github.com/verizonlabs/northstar/cron/service"
-	cronDataClient "github.com/verizonlabs/northstar/data/cron/client"
-	snippetsDataClient "github.com/verizonlabs/northstar/data/snippets/client"
-	processingClient "github.com/verizonlabs/northstar/processing/snippets/client"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/cron/env"
+	"github.com/lavaorg/northstar/cron/service"
+	cronDataClient "github.com/lavaorg/northstar/data/cron/client"
+	snippetsDataClient "github.com/lavaorg/northstar/data/snippets/client"
+	processingClient "github.com/lavaorg/northstar/processing/snippets/client"
 )
 
 func main() {

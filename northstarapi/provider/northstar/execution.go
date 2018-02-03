@@ -21,19 +21,19 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/pkg/rte/events"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/rte/events"
+	"github.com/lavaorg/northstar/rte/repl"
 
 	"bytes"
 
-	"code.cloudfoundry.org/bytefmt"
-	invocations "github.com/verizonlabs/northstar/data/invocations/client"
-	invocationModel "github.com/verizonlabs/northstar/data/invocations/model"
-	snippets "github.com/verizonlabs/northstar/processing/snippets/client"
-	snippetsModel "github.com/verizonlabs/northstar/processing/snippets/model"
+	"github.com/lavaorg/lrt/x/lfmt"
+	invocations "github.com/lavaorg/northstar/data/invocations/client"
+	invocationModel "github.com/lavaorg/northstar/data/invocations/model"
+	snippets "github.com/lavaorg/northstar/processing/snippets/client"
+	snippetsModel "github.com/lavaorg/northstar/processing/snippets/model"
 )
 
 // Defines the type used to represent an execution event.
@@ -188,7 +188,7 @@ func (provider *NorthStarExecutionProvider) Execute(accountId string, execution 
 	options := snippetsModel.Options{
 		Args:     execution.Arguments,
 		Callback: execution.Callback,
-		Memory:   execution.Memory * bytefmt.MEGABYTE,
+		Memory:   execution.Memory * lfmt.MEGABYTE,
 	}
 	// Create the snippet.
 	snippet := &snippetsModel.Snippet{

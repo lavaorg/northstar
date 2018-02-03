@@ -24,10 +24,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"github.com/pborman/uuid"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/portal/config"
-	"github.com/verizonlabs/northstar/portal/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/model"
 )
 
 // GetConnection sets up the websocket (creates a thread-safe map to store data as well as the websocket reads from

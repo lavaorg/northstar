@@ -18,7 +18,7 @@ package util
 
 import (
 	"encoding/json"
-	"github.com/verizonlabs/northstar/data/datasets/model"
+	"github.com/lavaorg/northstar/data/datasets/model"
 )
 
 func UnmarshalString(data string) (map[string]string, error) {

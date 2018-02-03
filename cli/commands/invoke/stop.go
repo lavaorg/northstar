@@ -20,9 +20,9 @@ import (
 	"flag"
 
 	"errors"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/processing/snippets/client"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/processing/snippets/client"
 )
 
 type StopInvocationCmd struct {

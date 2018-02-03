@@ -18,7 +18,7 @@ package cluster
 
 import (
 	"fmt"
-	"github.com/verizonlabs/northstar/dpe-stream/master/model"
+	"github.com/lavaorg/northstar/dpe-stream/master/model"
 )
 
 type StartJob struct {

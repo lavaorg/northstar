@@ -17,12 +17,12 @@ limitations under the License.
 package northstar
 
 import (
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	dataStreamClient "github.com/verizonlabs/northstar/data/stream/client"
-	dataStreamModel "github.com/verizonlabs/northstar/data/stream/model"
-	dpeStreamClient "github.com/verizonlabs/northstar/dpe-stream/master/client"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	dataStreamClient "github.com/lavaorg/northstar/data/stream/client"
+	dataStreamModel "github.com/lavaorg/northstar/data/stream/model"
+	dpeStreamClient "github.com/lavaorg/northstar/dpe-stream/master/client"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the type used to support operations on NorthStar streams.

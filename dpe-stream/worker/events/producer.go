@@ -16,7 +16,7 @@ limitations under the License.
 
 package events
 
-import "github.com/verizonlabs/northstar/dpe-stream/master/cluster"
+import "github.com/lavaorg/northstar/dpe-stream/master/cluster"
 
 type EventsProducer interface {
 	StreamOutput(job *cluster.StartJob, stdout string, stderr string, result string) error

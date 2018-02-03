@@ -17,8 +17,8 @@ limitations under the License.
 package nsFTP
 
 import (
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/stats"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
 )
 
 const NS_FTP_ERROR = "nsFTP error: "

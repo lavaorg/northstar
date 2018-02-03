@@ -19,10 +19,10 @@ package nsUtil
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/yuin/gopher-lua"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/rte-lua/util"
 	"reflect"
-	"github.com/verizonlabs/northstar/pkg/stats"
-	"github.com/verizonlabs/northstar/rte-lua/util"
 )
 
 const (

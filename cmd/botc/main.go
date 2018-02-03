@@ -19,11 +19,11 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	kafkaClient "github.com/verizonlabs/northstar/kafkamngr/client"
-	"github.com/verizonlabs/northstar/kafkamngr/model"
-	marathonClient "github.com/verizonlabs/northstar/pkg/marathon"
-	"github.com/verizonlabs/northstar/rte-lua/botc/config"
+	"github.com/lavaorg/lrt/x/mlog"
+	kafkaClient "github.com/lavaorg/northstar/kafkamngr/client"
+	"github.com/lavaorg/northstar/kafkamngr/model"
+	marathonClient "github.com/lavaorg/lrt/x/marathon"
+	"github.com/lavaorg/northstar/rte-lua/botc/config"
 	"strconv"
 )
 

@@ -19,7 +19,7 @@ package util
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/verizonlabs/northstar/data/datasets/model"
+	"github.com/lavaorg/northstar/data/datasets/model"
 	"strings"
 	"testing"
 )

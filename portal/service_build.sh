@@ -28,6 +28,6 @@ bash project -b $BRANCH clone $MODULE
     then
         make build | tee -a report.log
     else
-        make -C go/src/github.com/verizonlabs/northstar/$MODULE build  | tee -a report.log
+        make -C go/src/github.com/lavaorg/northstar/$MODULE build  | tee -a report.log
 
   fi

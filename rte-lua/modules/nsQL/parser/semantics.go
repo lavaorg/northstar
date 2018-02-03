@@ -17,7 +17,7 @@ limitations under the License.
 package parser
 
 import (
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/parser/ast"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/parser/ast"
 )
 
 func makeSelectExpression(left, right ast.Expression, operator string, lexer *nsQLLex) *ast.SelectExpression {

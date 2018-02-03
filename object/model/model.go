@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/object/util"
+	"github.com/lavaorg/northstar/object/util"
 )
 
 type Bucket struct {

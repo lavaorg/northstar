@@ -24,7 +24,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/mlog"
 	"strconv"
 	"strings"
 	"sync"

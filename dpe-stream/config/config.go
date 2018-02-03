@@ -17,9 +17,9 @@ limitations under the License.
 package config
 
 import (
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrt/x/mlog"
 	"io/ioutil"
-	"github.com/verizonlabs/northstar/pkg/config"
-	"github.com/verizonlabs/northstar/pkg/mlog"
 )
 
 var (

@@ -21,10 +21,10 @@ import (
 
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/data/mappings/client"
-	"github.com/verizonlabs/northstar/data/mappings/model"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/data/mappings/client"
+	"github.com/lavaorg/northstar/data/mappings/model"
 )
 
 type AddMappingCmd struct {

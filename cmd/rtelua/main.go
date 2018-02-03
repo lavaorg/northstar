@@ -17,10 +17,10 @@ limitations under the License.
 package main
 
 import (
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/rte"
+	"github.com/lavaorg/northstar/rte/repl"
 	"os"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/rte"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
 )
 
 // Start listening for snippets invocation requests.

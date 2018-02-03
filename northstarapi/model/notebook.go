@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/northstarapi/config"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/northstar/northstarapi/config"
+	"github.com/lavaorg/lrt/x/mlog"
 )
 
 const (

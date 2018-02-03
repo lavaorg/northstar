@@ -18,11 +18,11 @@ package client
 
 import (
 	"fmt"
-	lb "github.com/verizonlabs/northstar/pkg/httpclientlb"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/dpe-stream/master/model"
-	"github.com/verizonlabs/northstar/dpe-stream/master/util"
+	lb "github.com/lavaorg/lrt/x/httpclientlb"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/dpe-stream/master/model"
+	"github.com/lavaorg/northstar/dpe-stream/master/util"
 )
 
 const BASE_URI = util.StreamBasePath + "/jobs"

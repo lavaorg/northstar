@@ -19,11 +19,11 @@ package main
 import (
 	"os"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/processing/env"
-	"github.com/verizonlabs/northstar/processing/events"
-	"github.com/verizonlabs/northstar/processing/snippets"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/processing/env"
+	"github.com/lavaorg/northstar/processing/events"
+	"github.com/lavaorg/northstar/processing/snippets"
 )
 
 func main() {

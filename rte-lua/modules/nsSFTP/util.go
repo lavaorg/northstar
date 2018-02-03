@@ -17,8 +17,8 @@ limitations under the License.
 package nsSFTP
 
 import (
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/stats"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
 )
 
 const NS_SFTP_ERROR = "nsSFTP error: "

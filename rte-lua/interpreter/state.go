@@ -18,37 +18,37 @@ package interpreter
 
 import (
 	"context"
-	"github.com/yuin/gluare"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/modules/extended"
-	"github.com/yuin/gopher-lua/modules/gluahttp"
-	"github.com/yuin/gopher-lua/modules/gopher-luar"
-	"github.com/verizonlabs/northstar/pkg/config"
-	"github.com/verizonlabs/northstar/pkg/lualib"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	pkgCfg "github.com/verizonlabs/northstar/pkg/rte/config"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsFTP"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsObject"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsOutput"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsSFTP"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsStream"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsUtil"
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrt/x/luaext/extended"
+	"github.com/lavaorg/lrt/x/luaext/gluahttp"
+	"github.com/lavaorg/lrt/x/luaext/gluare"
+	"github.com/lavaorg/lrt/x/lualib"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsFTP"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsObject"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsOutput"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsSFTP"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsStream"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsUtil"
+	pkgCfg "github.com/lavaorg/northstar/rte/config"
+	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/layeh/gopher-luar"
 	"time"
 )
 
 var (
-	EnableHttp, _           = config.GetBool("ENABLE_HTTP", false)
-	EnableNSQL, _           = config.GetBool("ENABLE_NSQL", false)
-	EnableNSOutput, _       = config.GetBool("ENABLE_NSOUTPUT", true)
-	EnableNSFTP, _          = config.GetBool("ENABLE_NSFTP", false)
-	EnableNSSFTP, _         = config.GetBool("ENABLE_NSSFTP", false)
-	EnableNSObject, _       = config.GetBool("ENABLE_NSOBJECT", false)
-	EnableNSKV, _           = config.GetBool("ENABLE_NSKV", false)
-	EnableNSStream, _       = config.GetBool("ENABLE_NSSTREAM", false)
-	EnableNSUtil, _         = config.GetBool("ENABLE_NSUTIL", true)
+	EnableHttp, _     = config.GetBool("ENABLE_HTTP", false)
+	EnableNSQL, _     = config.GetBool("ENABLE_NSQL", false)
+	EnableNSOutput, _ = config.GetBool("ENABLE_NSOUTPUT", true)
+	EnableNSFTP, _    = config.GetBool("ENABLE_NSFTP", false)
+	EnableNSSFTP, _   = config.GetBool("ENABLE_NSSFTP", false)
+	EnableNSObject, _ = config.GetBool("ENABLE_NSOBJECT", false)
+	EnableNSKV, _     = config.GetBool("ENABLE_NSKV", false)
+	EnableNSStream, _ = config.GetBool("ENABLE_NSSTREAM", false)
+	EnableNSUtil, _   = config.GetBool("ENABLE_NSUTIL", true)
 )
 
 type ExecutionContext struct {

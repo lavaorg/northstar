@@ -20,13 +20,13 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/mappings/client"
-	"github.com/verizonlabs/northstar/processing/events/model"
-	"github.com/verizonlabs/northstar/processing/snippets"
-	snippetsModel "github.com/verizonlabs/northstar/processing/snippets/model"
-	"github.com/verizonlabs/northstar/processing/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/mappings/client"
+	"github.com/lavaorg/northstar/processing/events/model"
+	"github.com/lavaorg/northstar/processing/snippets"
+	snippetsModel "github.com/lavaorg/northstar/processing/snippets/model"
+	"github.com/lavaorg/northstar/processing/util"
 )
 
 type EventsService struct {

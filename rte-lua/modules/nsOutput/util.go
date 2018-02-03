@@ -21,10 +21,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/modules/gluamapper"
-	"github.com/verizonlabs/northstar/pkg/stats"
-	"github.com/verizonlabs/northstar/rte-lua/util"
+	"github.com/lavaorg/lrt/x/luaext/gluamapper"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/rte-lua/util"
 	"strings"
 )
 

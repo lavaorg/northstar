@@ -17,8 +17,8 @@ limitations under the License.
 package provider
 
 import (
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the interface used to support account resource operations.

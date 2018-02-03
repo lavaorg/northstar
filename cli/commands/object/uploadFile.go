@@ -22,10 +22,10 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/object/client"
-	"github.com/verizonlabs/northstar/object/model"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/object/client"
+	"github.com/lavaorg/northstar/object/model"
 )
 
 type UploadFileCMD struct {

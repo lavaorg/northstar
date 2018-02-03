@@ -17,7 +17,7 @@ limitations under the License.
 package nsQL
 
 import (
-	"github.com/verizonlabs/northstar/pkg/stats"
+	"github.com/lavaorg/lrt/x/stats"
 )
 
 var (

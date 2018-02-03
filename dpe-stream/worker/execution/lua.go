@@ -18,12 +18,12 @@ package execution
 
 import (
 	"errors"
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/dpe-stream/master/cluster"
-	"github.com/verizonlabs/northstar/dpe-stream/worker/events"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
-	"github.com/verizonlabs/northstar/rte-lua/util"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
+	"github.com/lavaorg/northstar/dpe-stream/worker/events"
+	"github.com/lavaorg/northstar/rte-lua/util"
+	"github.com/lavaorg/northstar/rte/repl"
 	"strings"
 	"time"
 )

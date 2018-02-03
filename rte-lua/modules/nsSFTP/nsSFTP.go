@@ -17,12 +17,12 @@ limitations under the License.
 package nsSFTP
 
 import (
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrt/x/luaext/gluamapper"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lua"
 	"github.com/pkg/sftp"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/modules/gluamapper"
 	"golang.org/x/crypto/ssh"
-	"github.com/verizonlabs/northstar/pkg/config"
-	"github.com/verizonlabs/northstar/pkg/mlog"
 )
 
 const (

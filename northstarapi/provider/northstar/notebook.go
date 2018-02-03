@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	notebooks "github.com/verizonlabs/northstar/data/notebooks/client"
-	notebooksModel "github.com/verizonlabs/northstar/data/notebooks/model"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/northstarapi/utils"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	notebooks "github.com/lavaorg/northstar/data/notebooks/client"
+	notebooksModel "github.com/lavaorg/northstar/data/notebooks/model"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/utils"
 )
 
 // Defines the type used to support operations on NorthStar notebooks.

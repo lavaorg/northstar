@@ -22,14 +22,14 @@ import (
 
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	invocationsClient "github.com/lavaorg/northstar/data/invocations/client"
+	snippetClient "github.com/lavaorg/northstar/data/snippets/client"
+	"github.com/lavaorg/northstar/processing/snippets/model"
+	"github.com/lavaorg/northstar/processing/util"
+	"github.com/lavaorg/northstar/rte/events"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	invocationsClient "github.com/verizonlabs/northstar/data/invocations/client"
-	snippetClient "github.com/verizonlabs/northstar/data/snippets/client"
-	"github.com/verizonlabs/northstar/pkg/rte/events"
-	"github.com/verizonlabs/northstar/processing/snippets/model"
-	"github.com/verizonlabs/northstar/processing/util"
 )
 
 type SnippetsService struct {

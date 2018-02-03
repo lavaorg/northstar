@@ -21,7 +21,7 @@ import __yyfmt__ "fmt"
 //line parser.y:2
 import (
 	"errors"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/parser/ast"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/parser/ast"
 )
 
 //line parser.y:112

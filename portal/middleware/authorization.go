@@ -21,11 +21,11 @@ import (
 	"net/http"
 	"github.com/gin-gonic/gin"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/thingspace/api"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/portal/model"
-	"github.com/verizonlabs/northstar/portal/utils"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/thingspace/api"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/portal/model"
+	"github.com/lavaorg/northstar/portal/utils"
 )
 
 const (

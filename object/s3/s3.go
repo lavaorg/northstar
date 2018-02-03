@@ -30,11 +30,12 @@ import (
 	"bytes"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/aws/aws-sdk-go/aws/defaults"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/object/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/object/model"
 )
 
 // Define the parameters used to sign the request.
@@ -80,17 +81,18 @@ func NewS3StorageProvider(input *ProviderInput) (StorageProvider, error) {
 	}
 
 	// Modify the default configuration
-	aws.DefaultConfig.Endpoint = input.Host
-	aws.DefaultConfig.Region = "vzlabs"
-	aws.DefaultConfig.Credentials = credentials.NewStaticCredentials(input.UserId, input.Secret, "")
-	aws.DefaultConfig.DisableSSL = true
-	aws.DefaultConfig.DisableParamValidation = false
-	aws.DefaultConfig.S3ForcePathStyle = true
+	awscfg := defaults.Config()
+	awscfg.Endpoint = input.Host
+	awscfg.Region = "vzlabs"
+	awscfg.Credentials = credentials.NewStaticCredentials(input.UserId, input.Secret, "")
+	awscfg.DisableSSL = true
+	awscfg.DisableParamValidation = false
+	awscfg.S3ForcePathStyle = true
 
 	// Debugging
 	if input.DebugFlag {
-		aws.DefaultConfig.LogLevel = uint(1)
-		aws.DefaultConfig.LogHTTPBody = true
+		awscfg.LogLevel = uint(1)
+		awscfg.LogHTTPBody = true
 	}
 
 	// Create the S3 client using default configuration.
@@ -165,7 +167,8 @@ func (S3StorageProvider *S3StorageProvider) Delete(bucketName, fileName string) 
 func (S3StorageProvider *S3StorageProvider) signVersion2(request *aws.Request) {
 	// If the request does not need to be signed ignore the signing of the
 	// request if the AnonymousCredentials object is used.
-	creds := aws.DefaultConfig.Credentials
+	awscfg := defaults.Config()
+	creds := awscfg.Credentials
 	if request.Service.Config.Credentials == credentials.AnonymousCredentials {
 		return
 	}
@@ -183,7 +186,7 @@ func (S3StorageProvider *S3StorageProvider) signVersion2(request *aws.Request) {
 	baseUrl := request.HTTPRequest.URL.String()
 	if baseUrl == "" {
 		// This should not happen. If it does, we should return error.
-		baseUrl = aws.DefaultConfig.Endpoint
+		baseUrl = awscfg.Endpoint
 	}
 
 	parsedUrl, err := url.Parse(baseUrl)

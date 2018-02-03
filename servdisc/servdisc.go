@@ -22,7 +22,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/mlog"
 )
 
 type ServiceType int

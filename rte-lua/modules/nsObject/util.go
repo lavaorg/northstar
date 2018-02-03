@@ -17,8 +17,8 @@ limitations under the License.
 package nsObject
 
 import (
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/stats"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
 )
 
 const NS_OBJECT_ERROR = "nsObject error: "

@@ -17,11 +17,11 @@ limitations under the License.
 package interpreter
 
 import (
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rlimit"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
-	"github.com/verizonlabs/northstar/pkg/rte/rlimit"
 	"testing"
 )
 

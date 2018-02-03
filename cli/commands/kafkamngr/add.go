@@ -21,9 +21,9 @@ import (
 
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/kafkamngr/client"
-	"github.com/verizonlabs/northstar/kafkamngr/model"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/kafkamngr/client"
+	"github.com/lavaorg/northstar/kafkamngr/model"
 )
 
 type AddTopicsCmd struct {

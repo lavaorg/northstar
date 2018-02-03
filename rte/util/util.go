@@ -18,10 +18,11 @@ package util
 
 import (
 	"errors"
+	"github.com/lavaorg/lrt/x/b64"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/satori/go.uuid"
-	"github.com/verizonlabs/northstar/pkg/b64"
-	"github.com/verizonlabs/northstar/pkg/file"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"io/ioutil"
 	"net/url"
 	"os"
 	"os/exec"
@@ -66,22 +67,26 @@ func GetSnippetCode(fullUrl string, code string) (string, error) {
 		return "", errors.New("S3 schema not supported!")
 	case "http":
 		mlog.Debug("HTTP schema detected")
-		fileName := TMP_DIRECTORY + "/" + "rte-" + uuid.NewV4().String()
+		vuuid, err := uuid.NewV4()
+		if err != nil {
+			mlog.Error("couldnet create snippet id:%v", err)
+			return "", err
+		}
+		fileName := TMP_DIRECTORY + "/" + "rte-" + vuuid.String()
 
 		//		err := file.DownloadFromHttpToLocal(parsed.Host, parsed.Path, fileName)
-		resp, err := management.Get("http://"+host, path)
+		resp, err := management.Get("http://"+parsed.Host, parsed.Path)
 		if err == nil {
-			err := ioutil.WriteFile(dest, resp, 0644)
+			err = ioutil.WriteFile(fileName, resp, 0644)
 		}
 		if err != nil {
 			mlog.Error("Failed to download file: %v", err)
 			return "", err
 		}
-		b, err := ioutil.ReadFile(file)
+		b, err := ioutil.ReadFile(fileName)
 		if err != nil {
 			return "", err
 		}
-
 		return string(b), nil
 	default:
 		return "", errors.New("Unknow schema detected: " + parsed.Scheme)

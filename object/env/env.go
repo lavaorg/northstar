@@ -18,8 +18,8 @@ package env
 
 import (
 	"os"
-	"github.com/verizonlabs/northstar/pkg/config"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrt/x/mlog"
 	"strings"
 )
 

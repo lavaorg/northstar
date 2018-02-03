@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/verizonlabs/northstar/pkg/config"
-	"github.com/verizonlabs/northstar/pkg/middleware"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrt/x/middleware"
+	"github.com/lavaorg/lrt/x/mlog"
 )
 
 const (

@@ -21,10 +21,10 @@ import (
 
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/cron/client"
-	"github.com/verizonlabs/northstar/cron/model"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/cron/client"
+	"github.com/lavaorg/northstar/cron/model"
 )
 
 type UpdateJobCmd struct {

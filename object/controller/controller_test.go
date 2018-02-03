@@ -28,10 +28,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/object/mocks/storage"
-	"github.com/verizonlabs/northstar/object/model"
-	"github.com/verizonlabs/northstar/object/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/object/mocks/storage"
+	"github.com/lavaorg/northstar/object/model"
+	"github.com/lavaorg/northstar/object/util"
 )
 
 const (

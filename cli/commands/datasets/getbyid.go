@@ -20,9 +20,9 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/data/datasets/client"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/data/datasets/client"
 )
 
 type GetDatasetByIdCmd struct {

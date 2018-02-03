@@ -21,16 +21,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/thingspace"
-	"github.com/verizonlabs/northstar/pkg/thingspace/api"
-	"github.com/verizonlabs/northstar/portal/config"
-	"github.com/verizonlabs/northstar/portal/middleware"
-	"github.com/verizonlabs/northstar/portal/provider"
-	"github.com/verizonlabs/northstar/portal/provider/northstar"
-	"github.com/verizonlabs/northstar/portal/utils"
-	north "github.com/verizonlabs/northstar/portal/utils/thingspace"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/thingspace"
+	"github.com/lavaorg/lrt/x/thingspace/api"
+	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/middleware"
+	"github.com/lavaorg/northstar/portal/provider"
+	"github.com/lavaorg/northstar/portal/provider/northstar"
+	"github.com/lavaorg/northstar/portal/utils"
+	north "github.com/lavaorg/northstar/portal/utils/thingspace"
 )
 
 // Controller defines the structure for a portal controller.

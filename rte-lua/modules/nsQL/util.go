@@ -19,11 +19,11 @@ package nsQL
 import (
 	"errors"
 	"os"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler/cassandra"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler/spark"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/constants"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/cassandra"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/spark"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/constants"
 )
 
 func getCompiler(processing *compiler.Processing) (compiler.Compiler, error) {

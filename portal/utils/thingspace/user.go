@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
 )
 
 // User defines the type used to represent ThingSpace User

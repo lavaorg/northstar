@@ -20,8 +20,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/utils"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/utils"
 )
 
 //ListBuckets retrieves a list of buckets belonging to the user

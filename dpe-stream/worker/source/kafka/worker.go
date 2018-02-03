@@ -18,11 +18,11 @@ package kafka
 
 import (
 	"fmt"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/msgq"
-	"github.com/verizonlabs/northstar/dpe-stream/master/cluster"
-	"github.com/verizonlabs/northstar/dpe-stream/worker/events"
-	"github.com/verizonlabs/northstar/dpe-stream/worker/execution"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/msgq"
+	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
+	"github.com/lavaorg/northstar/dpe-stream/worker/events"
+	"github.com/lavaorg/northstar/dpe-stream/worker/execution"
 )
 
 type KafkaWorker struct {

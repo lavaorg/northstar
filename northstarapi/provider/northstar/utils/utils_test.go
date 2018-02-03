@@ -19,9 +19,9 @@ package utils
 import (
 	"testing"
 
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/rte/repl"
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
 )
 
 func TestGetOutputStatus(t *testing.T) {

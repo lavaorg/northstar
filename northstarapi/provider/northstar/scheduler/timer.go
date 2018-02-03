@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	cronClient "github.com/verizonlabs/northstar/cron/client"
-	cronModel "github.com/verizonlabs/northstar/cron/model"
-	cronDataClient "github.com/verizonlabs/northstar/data/cron/client"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	cronClient "github.com/lavaorg/northstar/cron/client"
+	cronModel "github.com/lavaorg/northstar/cron/model"
+	cronDataClient "github.com/lavaorg/northstar/data/cron/client"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the type used to support operations on NorthStar resources

@@ -21,7 +21,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gocql/gocql"
-	"github.com/yuin/gopher-lua"
+	"github.com/lavaorg/lua"
 	"math/big"
 	"reflect"
 	"strconv"

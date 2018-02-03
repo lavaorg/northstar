@@ -17,13 +17,13 @@ limitations under the License.
 package kafka
 
 import (
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/msgq"
-	"github.com/verizonlabs/northstar/pkg/service_master"
-	"github.com/verizonlabs/northstar/dpe-stream/config"
-	"github.com/verizonlabs/northstar/dpe-stream/master/cluster"
-	"github.com/verizonlabs/northstar/dpe-stream/master/connection"
-	"github.com/verizonlabs/northstar/dpe-stream/worker/events"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/msgq"
+	"github.com/lavaorg/lrt/x/service_master"
+	"github.com/lavaorg/northstar/dpe-stream/config"
+	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
+	"github.com/lavaorg/northstar/dpe-stream/master/connection"
+	"github.com/lavaorg/northstar/dpe-stream/worker/events"
 	"sync/atomic"
 	"time"
 )

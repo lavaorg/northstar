@@ -19,19 +19,19 @@ package main
 import (
 	"os"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/cron"
-	"github.com/verizonlabs/northstar/data/datasets"
-	"github.com/verizonlabs/northstar/data/datasources"
-	"github.com/verizonlabs/northstar/data/env"
-	"github.com/verizonlabs/northstar/data/events"
-	"github.com/verizonlabs/northstar/data/invocations"
-	"github.com/verizonlabs/northstar/data/mappings"
-	"github.com/verizonlabs/northstar/data/notebooks"
-	"github.com/verizonlabs/northstar/data/snippets"
-	"github.com/verizonlabs/northstar/data/stream"
-	"github.com/verizonlabs/northstar/data/templates"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/cron"
+	"github.com/lavaorg/northstar/data/datasets"
+	"github.com/lavaorg/northstar/data/datasources"
+	"github.com/lavaorg/northstar/data/env"
+	"github.com/lavaorg/northstar/data/events"
+	"github.com/lavaorg/northstar/data/invocations"
+	"github.com/lavaorg/northstar/data/mappings"
+	"github.com/lavaorg/northstar/data/notebooks"
+	"github.com/lavaorg/northstar/data/snippets"
+	"github.com/lavaorg/northstar/data/stream"
+	"github.com/lavaorg/northstar/data/templates"
 )
 
 type DataService interface {

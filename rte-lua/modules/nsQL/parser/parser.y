@@ -2,7 +2,7 @@
 
 import (
 	"errors"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/parser/ast"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/parser/ast"
 )
 %}
 

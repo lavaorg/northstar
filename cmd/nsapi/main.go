@@ -21,9 +21,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/config"
-	"github.com/verizonlabs/northstar/northstarapi/service"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/service"
 )
 
 const (

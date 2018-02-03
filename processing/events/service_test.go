@@ -26,14 +26,14 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	invocationsClient "github.com/verizonlabs/northstar/data/invocations/client"
-	mappingsClient "github.com/verizonlabs/northstar/data/mappings/client"
-	snippetsClient "github.com/verizonlabs/northstar/data/snippets/client"
-	"github.com/verizonlabs/northstar/pkg/rte/events/mocks"
-	"github.com/verizonlabs/northstar/processing/snippets"
-	"github.com/verizonlabs/northstar/processing/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	invocationsClient "github.com/lavaorg/northstar/data/invocations/client"
+	mappingsClient "github.com/lavaorg/northstar/data/mappings/client"
+	snippetsClient "github.com/lavaorg/northstar/data/snippets/client"
+	"github.com/lavaorg/northstar/processing/snippets"
+	"github.com/lavaorg/northstar/processing/util"
+	"github.com/lavaorg/northstar/rte/events/mocks"
 )
 
 const (

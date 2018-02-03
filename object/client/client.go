@@ -19,11 +19,11 @@ package client
 import (
 	"encoding/json"
 	"fmt"
-	lb "github.com/verizonlabs/northstar/pkg/httpclientlb"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/object/model"
-	"github.com/verizonlabs/northstar/object/util"
+	lb "github.com/lavaorg/lrt/x/httpclientlb"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/object/model"
+	"github.com/lavaorg/northstar/object/util"
 )
 
 const (

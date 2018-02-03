@@ -22,10 +22,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/processing/events/client"
-	"github.com/verizonlabs/northstar/processing/events/model"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/processing/events/client"
+	"github.com/lavaorg/northstar/processing/events/model"
 )
 
 type InvokeEventCmd struct {

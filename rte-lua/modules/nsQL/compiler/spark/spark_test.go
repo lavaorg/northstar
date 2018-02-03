@@ -18,7 +18,7 @@ package spark
 
 import (
 	"github.com/stretchr/testify/require"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler"
 	"testing"
 )
 

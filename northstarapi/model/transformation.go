@@ -21,7 +21,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/verizonlabs/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/config"
 )
 
 const (

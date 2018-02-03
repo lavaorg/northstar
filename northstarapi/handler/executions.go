@@ -19,11 +19,11 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/config"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/northstarapi/utils"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/utils"
 	"strconv"
 )
 

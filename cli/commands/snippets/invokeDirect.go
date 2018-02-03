@@ -22,12 +22,12 @@ import (
 
 	"fmt"
 
-	"code.cloudfoundry.org/bytefmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/pkg/b64"
-	"github.com/verizonlabs/northstar/processing/snippets/client"
-	"github.com/verizonlabs/northstar/processing/snippets/model"
+	"github.com/lavaorg/lrt/x/b64"
+	"github.com/lavaorg/lrt/x/lfmt"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/processing/snippets/client"
+	"github.com/lavaorg/northstar/processing/snippets/model"
 )
 
 type InvokeSnippetDirectCmd struct {

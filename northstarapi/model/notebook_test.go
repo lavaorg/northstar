@@ -21,7 +21,7 @@ import (
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/verizonlabs/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/config"
 )
 
 /*

@@ -19,11 +19,11 @@ package object
 import (
 	"fmt"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	objectClient "github.com/verizonlabs/northstar/object/client"
-	objectModel "github.com/verizonlabs/northstar/object/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	objectClient "github.com/lavaorg/northstar/object/client"
+	objectModel "github.com/lavaorg/northstar/object/model"
 )
 
 // S3ObjectProvider defines the type used to support operations on NorthStar S3 Objects.

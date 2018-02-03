@@ -20,13 +20,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	eventDataClient "github.com/verizonlabs/northstar/data/events/client"
-	eventDataModel "github.com/verizonlabs/northstar/data/events/model"
-	mappingDataClient "github.com/verizonlabs/northstar/data/mappings/client"
-	mappingDataModel "github.com/verizonlabs/northstar/data/mappings/model"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	eventDataClient "github.com/lavaorg/northstar/data/events/client"
+	eventDataModel "github.com/lavaorg/northstar/data/events/model"
+	mappingDataClient "github.com/lavaorg/northstar/data/mappings/client"
+	mappingDataModel "github.com/lavaorg/northstar/data/mappings/model"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the type used to support operations on NorthStar resources

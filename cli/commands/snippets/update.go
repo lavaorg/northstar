@@ -20,13 +20,13 @@ import (
 	"errors"
 	"flag"
 
-	"code.cloudfoundry.org/bytefmt"
 	"fmt"
-	"github.com/verizonlabs/northstar/cli/commands"
-	"github.com/verizonlabs/northstar/cli/util"
-	"github.com/verizonlabs/northstar/data/snippets/client"
-	"github.com/verizonlabs/northstar/data/snippets/model"
-	"github.com/verizonlabs/northstar/pkg/b64"
+	"github.com/lavaorg/lrt/x/b64"
+	"github.com/lavaorg/lrt/x/lfmt"
+	"github.com/lavaorg/northstar/cli/commands"
+	"github.com/lavaorg/northstar/cli/util"
+	"github.com/lavaorg/northstar/data/snippets/client"
+	"github.com/lavaorg/northstar/data/snippets/model"
 )
 
 type UpdateSnippetCmd struct {

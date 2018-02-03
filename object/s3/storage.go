@@ -17,8 +17,8 @@ limitations under the License.
 package s3
 
 import (
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/object/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/object/model"
 )
 
 type ProviderInput struct {

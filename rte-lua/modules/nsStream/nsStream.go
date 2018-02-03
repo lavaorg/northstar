@@ -17,14 +17,14 @@ limitations under the License.
 package nsStream
 
 import (
+	"github.com/lavaorg/lrt/x/luaext/gluamapper"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/dpe-stream/master/client"
+	"github.com/lavaorg/northstar/dpe-stream/master/model"
 	"github.com/pkg/errors"
 	"github.com/vmihailenco/msgpack"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/modules/gluamapper"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/stats"
-	"github.com/verizonlabs/northstar/dpe-stream/master/client"
-	"github.com/verizonlabs/northstar/dpe-stream/master/model"
 )
 
 const (

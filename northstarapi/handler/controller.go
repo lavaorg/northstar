@@ -22,14 +22,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/middleware"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/northstarapi/provider"
-	"github.com/verizonlabs/northstar/northstarapi/provider/northstar"
-	"github.com/verizonlabs/northstar/northstarapi/provider/northstar/object"
-	"github.com/verizonlabs/northstar/northstarapi/provider/thingspace"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/middleware"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/provider"
+	"github.com/lavaorg/northstar/northstarapi/provider/northstar"
+	"github.com/lavaorg/northstar/northstarapi/provider/northstar/object"
 )
 
 const (
@@ -54,11 +53,11 @@ func NewController() (*Controller, error) {
 	mlog.Info("NewController")
 
 	// Create the ThingSpace Account Provider.
-	accountProvider, err := thingspace.NewThingSpaceAccountProvider()
+	//accountProvider, err := thingspace.NewThingSpaceAccountProvider()
 
-	if err != nil {
-		return nil, fmt.Errorf("Failed to create thingspace account provider with error: %+v", err)
-	}
+	//if err != nil {
+	//	return nil, fmt.Errorf("Failed to create thingspace account provider with error: %+v", err)
+	//}
 
 	// Create the NorthStar Providers.
 	notebookProvider, err := northstar.NewNorthStarNotebooksProvider()
@@ -99,7 +98,7 @@ func NewController() (*Controller, error) {
 
 	// Create the controller
 	controller := &Controller{
-		accountProvider:        accountProvider,
+		accountProvider:        nil, //RAU:TODO: need to decide what to do here
 		transformationProvider: transformationProvider,
 		notebookProvider:       notebookProvider,
 		executionProvider:      executionProvider,

@@ -17,8 +17,8 @@ limitations under the License.
 package utils
 
 import (
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/rte/repl"
 )
 
 // Defines the map used to translate output status.

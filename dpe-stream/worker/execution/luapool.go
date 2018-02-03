@@ -17,10 +17,10 @@ limitations under the License.
 package execution
 
 import (
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/dpe-stream/config"
-	"github.com/verizonlabs/northstar/pkg/rte/repl"
-	"github.com/verizonlabs/northstar/rte-lua/interpreter"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/dpe-stream/config"
+	"github.com/lavaorg/northstar/rte-lua/interpreter"
 	"sync"
 )
 

@@ -18,7 +18,7 @@ package connection
 
 import (
 	"fmt"
-	"github.com/verizonlabs/northstar/pkg/msgq"
+	"github.com/lavaorg/lrt/x/msgq"
 )
 
 type KafkaConnection struct {

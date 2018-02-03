@@ -18,10 +18,10 @@ package nsObject
 
 import (
 	"fmt"
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/object/client"
-	"github.com/verizonlabs/northstar/object/model"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/object/client"
+	"github.com/lavaorg/northstar/object/model"
 	"strconv"
 	"time"
 )

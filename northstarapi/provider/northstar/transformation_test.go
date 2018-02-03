@@ -21,8 +21,8 @@ import (
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
-	snippetsModel "github.com/verizonlabs/northstar/data/snippets/model"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	snippetsModel "github.com/lavaorg/northstar/data/snippets/model"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 func TestFromExternal(t *testing.T) {

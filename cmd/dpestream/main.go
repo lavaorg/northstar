@@ -18,11 +18,11 @@ package main
 
 import (
 	"os"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/dpe-stream/config"
-	"github.com/verizonlabs/northstar/dpe-stream/master/service"
-	"github.com/verizonlabs/northstar/dpe-stream/worker"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/dpe-stream/config"
+	"github.com/lavaorg/northstar/dpe-stream/master/service"
+	"github.com/lavaorg/northstar/dpe-stream/worker"
 )
 
 const (

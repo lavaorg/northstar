@@ -20,9 +20,9 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	lb "github.com/verizonlabs/northstar/pkg/httpclientlb"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	lb "github.com/lavaorg/lrt/x/httpclientlb"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Client defines the type used to represent a service client.

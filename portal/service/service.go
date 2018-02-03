@@ -21,13 +21,13 @@ import (
 	"path"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/middleware"
-	log "github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/portal/config"
-	"github.com/verizonlabs/northstar/portal/handler"
-	portalMiddleware "github.com/verizonlabs/northstar/portal/middleware"
-	"github.com/verizonlabs/northstar/portal/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/middleware"
+	log "github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/handler"
+	portalMiddleware "github.com/lavaorg/northstar/portal/middleware"
+	"github.com/lavaorg/northstar/portal/model"
 )
 
 //Service defines the base structure to handle the portal service.

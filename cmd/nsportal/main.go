@@ -19,9 +19,9 @@ package main
 import (
 	"os"
 	"os/signal"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/portal/config"
-	"github.com/verizonlabs/northstar/portal/service"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/service"
 	"syscall"
 )
 

@@ -22,16 +22,16 @@ import (
 	"net/url"
 	"time"
 
-	"code.cloudfoundry.org/bytefmt"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	invocation "github.com/verizonlabs/northstar/data/invocations/client"
-	invocationModel "github.com/verizonlabs/northstar/data/invocations/model"
-	snippets "github.com/verizonlabs/northstar/data/snippets/client"
-	snippetsModel "github.com/verizonlabs/northstar/data/snippets/model"
-	"github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/northstarapi/provider/northstar/scheduler"
-	"github.com/verizonlabs/northstar/northstarapi/provider/northstar/utils"
+	"github.com/lavaorg/lrt/x/lfmt"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	invocation "github.com/lavaorg/northstar/data/invocations/client"
+	invocationModel "github.com/lavaorg/northstar/data/invocations/model"
+	snippets "github.com/lavaorg/northstar/data/snippets/client"
+	snippetsModel "github.com/lavaorg/northstar/data/snippets/model"
+	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/provider/northstar/scheduler"
+	"github.com/lavaorg/northstar/northstarapi/provider/northstar/utils"
 )
 
 // Defines the type used to support operations on NorthStar resources
@@ -489,7 +489,7 @@ func (provider *NorthStarTransformationProvider) fromExternal(externalTransforma
 			Url:   fmt.Sprintf("%s://code", model.SourceCodeType.GetScheme()), // default
 			Value: externalTransformation.Code,
 		},
-		Memory: externalTransformation.Memory / bytefmt.MEGABYTE,
+		Memory: externalTransformation.Memory / lfmt.MEGABYTE,
 	}
 
 	// Get the code type from the snippet url.
@@ -560,7 +560,7 @@ func (provider *NorthStarTransformationProvider) toExternal(transformation *mode
 		Timeout:     transformation.Timeout * 1000, // Convert to Milliseconds
 		EventType:   eventType,
 		EventId:     transformation.SchedulerId,
-		Memory:      transformation.Memory * bytefmt.MEGABYTE,
+		Memory:      transformation.Memory * lfmt.MEGABYTE,
 	}
 
 	return externalTransformation

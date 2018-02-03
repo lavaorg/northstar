@@ -19,7 +19,7 @@ package model
 import (
 	"net/http"
 
-	"github.com/verizonlabs/northstar/pkg/management"
+	"github.com/lavaorg/lrt/x/management"
 )
 
 const (

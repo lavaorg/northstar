@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"github.com/verizonlabs/northstar/pkg/mlog"
+	"github.com/lavaorg/lrt/x/mlog"
 	"strings"
 )
 

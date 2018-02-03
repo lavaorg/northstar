@@ -20,7 +20,7 @@ import (
 	"net/http"
 
 	"fmt"
-	"github.com/verizonlabs/northstar/pkg/management"
+	"github.com/lavaorg/lrt/x/management"
 )
 
 // Define user specific errors returned by the API.

@@ -17,13 +17,13 @@ limitations under the License.
 package nsQL
 
 import (
+	"github.com/lavaorg/lrt/x/luaext/gluamapper"
+	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler"
+	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/cassandra"
+	"github.com/lavaorg/northstar/rte-lua/util"
 	"github.com/pkg/errors"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/modules/gluamapper"
-	"github.com/verizonlabs/northstar/pkg/stats"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler"
-	"github.com/verizonlabs/northstar/rte-lua/modules/nsQL/compiler/cassandra"
-	"github.com/verizonlabs/northstar/rte-lua/util"
 )
 
 const (

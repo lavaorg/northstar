@@ -16,7 +16,7 @@ limitations under the License.
 
 package nsFTP
 
-import "github.com/verizonlabs/northstar/pkg/stats"
+import "github.com/lavaorg/lrt/x/stats"
 
 var (
 	NsFTP         = stats.New("nsFTP")

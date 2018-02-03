@@ -17,8 +17,8 @@ limitations under the License.
 package nsOutput
 
 import (
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/config"
+	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lua"
 )
 
 const (

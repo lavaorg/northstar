@@ -17,10 +17,10 @@ limitations under the License.
 package config
 
 import (
+	"github.com/lavaorg/lrt/x/config"
+	rteCfg "github.com/lavaorg/northstar/rte/config"
+	"github.com/lavaorg/northstar/rte/topics"
 	"os"
-	"github.com/verizonlabs/northstar/pkg/config"
-	rteCfg "github.com/verizonlabs/northstar/pkg/rte/config"
-	"github.com/verizonlabs/northstar/pkg/rte/topics"
 )
 
 var (

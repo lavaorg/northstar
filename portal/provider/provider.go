@@ -17,8 +17,8 @@ limitations under the License.
 package provider
 
 import (
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/portal/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/northstar/portal/model"
 )
 
 // PortalProvider defines the basic interface that implementers of the portal api functionality must fulfill.

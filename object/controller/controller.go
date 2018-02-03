@@ -24,12 +24,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/object/model"
-	"github.com/verizonlabs/northstar/object/s3"
-	"github.com/verizonlabs/northstar/object/stats"
-	"github.com/verizonlabs/northstar/object/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/object/model"
+	"github.com/lavaorg/northstar/object/s3"
+	"github.com/lavaorg/northstar/object/stats"
+	"github.com/lavaorg/northstar/object/util"
 )
 
 type Controller struct {

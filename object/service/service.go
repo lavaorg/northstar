@@ -18,12 +18,12 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/object/controller"
-	"github.com/verizonlabs/northstar/object/env"
-	"github.com/verizonlabs/northstar/object/s3"
-	"github.com/verizonlabs/northstar/object/util"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/object/controller"
+	"github.com/lavaorg/northstar/object/env"
+	"github.com/lavaorg/northstar/object/s3"
+	"github.com/lavaorg/northstar/object/util"
 )
 
 type Service struct {

@@ -21,13 +21,13 @@ import (
 	"path"
 
 	"github.com/gin-gonic/gin"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/middleware"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/pkg/thingspace"
-	"github.com/verizonlabs/northstar/northstarapi/config"
-	"github.com/verizonlabs/northstar/northstarapi/handler"
-	"github.com/verizonlabs/northstar/northstarapi/model"
+	"github.com/lavaorg/lrt/x/accounts"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/middleware"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/handler"
+	"github.com/lavaorg/northstar/northstarapi/model"
 )
 
 // Defines the type that represents the service.
@@ -60,7 +60,7 @@ func NewService() (*Service, error) {
 	}
 
 	// Create thingspace auth client.
-	authClient := thingspace.NewThingSpaceAuthClient(config.Configuration.ThingSpaceAuthHostPort)
+	authClient := accounts.NewNSAuthClientWithProtocol("http", "192.168.11:9966")
 
 	// Create Application REST services
 	engine := management.Engine()

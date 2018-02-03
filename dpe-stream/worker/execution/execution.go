@@ -17,7 +17,7 @@ limitations under the License.
 package execution
 
 import (
-	"github.com/verizonlabs/northstar/dpe-stream/master/cluster"
+	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
 )
 
 type Execution interface {

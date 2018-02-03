@@ -20,10 +20,10 @@ import (
 	b64 "encoding/base64"
 	"encoding/json"
 	"fmt"
+	"github.com/lavaorg/lrt/x/marathon"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/dpe-stream/config"
 	"os"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/dpe-stream/config"
-	"github.com/verizonlabs/northstar/pkg/marathon"
 )
 
 type MarathonCluster struct {

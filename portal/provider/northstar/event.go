@@ -22,10 +22,10 @@ import (
 
 	"bytes"
 
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	northstarApiModel "github.com/verizonlabs/northstar/northstarapi/model"
-	"github.com/verizonlabs/northstar/portal/model"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	northstarApiModel "github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/portal/model"
 )
 
 // ProcessEvent is a helper method used to parse async event payload based on type. Note

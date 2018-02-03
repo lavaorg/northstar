@@ -20,10 +20,10 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lua"
+	"github.com/lavaorg/northstar/rte-lua/util"
 	"github.com/vmihailenco/msgpack"
-	"github.com/yuin/gopher-lua"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/rte-lua/util"
 )
 
 type Source struct {

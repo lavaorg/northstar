@@ -17,10 +17,10 @@ limitations under the License.
 package northstar
 
 import (
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/northstarapi/client"
-	"github.com/verizonlabs/northstar/portal/config"
-	"github.com/verizonlabs/northstar/portal/utils/thingspace"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/client"
+	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/utils/thingspace"
 )
 
 // NorthStarPortalProvider defines the type that implements the PortalProvider.

@@ -19,17 +19,17 @@ package service
 import (
 	"github.com/gambol99/go-marathon"
 	"github.com/gin-gonic/gin"
+	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/data/stream/client"
+	dataModel "github.com/lavaorg/northstar/data/stream/model"
+	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
+	"github.com/lavaorg/northstar/dpe-stream/master/connection"
+	"github.com/lavaorg/northstar/dpe-stream/master/model"
+	"github.com/lavaorg/northstar/dpe-stream/master/stats"
+	"github.com/lavaorg/northstar/dpe-stream/master/util"
 	uuid "github.com/satori/go.uuid"
 	"net/http"
-	"github.com/verizonlabs/northstar/pkg/management"
-	"github.com/verizonlabs/northstar/pkg/mlog"
-	"github.com/verizonlabs/northstar/data/stream/client"
-	dataModel "github.com/verizonlabs/northstar/data/stream/model"
-	"github.com/verizonlabs/northstar/dpe-stream/master/cluster"
-	"github.com/verizonlabs/northstar/dpe-stream/master/connection"
-	"github.com/verizonlabs/northstar/dpe-stream/master/model"
-	"github.com/verizonlabs/northstar/dpe-stream/master/stats"
-	"github.com/verizonlabs/northstar/dpe-stream/master/util"
 )
 
 const (
@@ -87,7 +87,13 @@ func (s *StreamService) startJob(c *gin.Context) {
 		return
 	}
 
-	jobId := uuid.NewV4().String()
+	vuuid, err := uuid.NewV4()
+	if err != nil {
+		stats.ErrDataAddJob.Incr()
+		c.JSON(http.StatusInternalServerError, management.GetInternalError(err.Error()))
+		return
+	}
+	jobId := vuuid.String()
 	jobData := createJobData(accountId, jobId, job)
 	mErr := s.dataClient.AddJob(accountId, jobData)
 	if err != nil {
