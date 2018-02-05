@@ -22,15 +22,15 @@ import (
 	"errors"
 	"fmt"
 	"github.com/lavaorg/northstar/cli/commands"
-	"github.com/lavaorg/northstar/kafkamngr/client"
+	"github.com/lavaorg/northstar/kafkamgr"
 )
 
 type ListTopicsCmd struct {
-	client *client.KafkaMngrClient
+	client *kafkamgr.KafkaMngrClient
 	cmd    *flag.FlagSet
 }
 
-func NewListTopics(client *client.KafkaMngrClient) commands.Command {
+func NewListTopics(client *kafkamgr.KafkaMngrClient) commands.Command {
 	cmd := flag.NewFlagSet("topics-list", flag.ExitOnError)
 	return &ListTopicsCmd{client: client, cmd: cmd}
 }
@@ -42,7 +42,7 @@ func (d *ListTopicsCmd) Run(args []string) error {
 		return errors.New("Failed to parse cmd")
 	}
 
-	resp, err := d.client.GetTopics()
+	resp, err := d.kafkamgr.GetTopics()
 	if err != nil {
 		return err
 	}

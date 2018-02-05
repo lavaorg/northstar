@@ -22,19 +22,18 @@ import (
 	"errors"
 	"fmt"
 	"github.com/lavaorg/northstar/cli/commands"
-	"github.com/lavaorg/northstar/kafkamngr/client"
-	"github.com/lavaorg/northstar/kafkamngr/model"
+	"github.com/lavaorg/northstar/kafkamgr"
 )
 
 type AddTopicsCmd struct {
-	client      *client.KafkaMngrClient
+	client      *kafkamgr.KafkaMngrClient
 	cmd         *flag.FlagSet
 	name        *string
 	partitions  *int
 	replication *int
 }
 
-func NewAddTopics(client *client.KafkaMngrClient) commands.Command {
+func NewAddTopics(client *kafkamgr.KafkaMngrClient) commands.Command {
 	cmd := flag.NewFlagSet("topics-add", flag.ExitOnError)
 	name := cmd.String("name", "test", "The topic name")
 	partitions := cmd.Int("partitions", 1, "The number of partitions")
@@ -53,11 +52,11 @@ func (output *AddTopicsCmd) Run(args []string) error {
 		return errors.New("Failed to parse cmd")
 	}
 
-	topic := &model.Topic{Name: *output.name,
+	topic := &kafkamgr.Topic{Name: *output.name,
 		Partitions:  *output.partitions,
 		Replication: *output.replication}
 
-	err := output.client.CreateTopic(topic)
+	err := output.kafkamgr.CreateTopic(topic)
 	if err != nil {
 		return err
 	}

@@ -22,12 +22,11 @@ import (
 	"errors"
 	"fmt"
 	"github.com/lavaorg/northstar/cli/commands"
-	"github.com/lavaorg/northstar/kafkamngr/client"
-	"github.com/lavaorg/northstar/kafkamngr/model"
+	"github.com/lavaorg/northstar/kafkamgr"
 )
 
 type UpdateTopicsCmd struct {
-	client      *client.KafkaMngrClient
+	client      *kafkamgr.KafkaMngrClient
 	cmd         *flag.FlagSet
 	service     *string
 	topic       *string
@@ -35,7 +34,7 @@ type UpdateTopicsCmd struct {
 	replication *int
 }
 
-func NewUpdateTopics(client *client.KafkaMngrClient) commands.Command {
+func NewUpdateTopics(client *kafkamgr.KafkaMngrClient) commands.Command {
 	cmd := flag.NewFlagSet("topics-update", flag.ExitOnError)
 	service := cmd.String("service", "test", "The service name")
 	topic := cmd.String("topic", "test", "The topic name")
@@ -56,11 +55,11 @@ func (output *UpdateTopicsCmd) Run(args []string) error {
 		return errors.New("Failed to parse cmd")
 	}
 
-	topic := &model.Topic{Name: *output.topic,
+	topic := &kafkamgr.Topic{Name: *output.topic,
 		Partitions:  *output.partitions,
 		Replication: *output.replication}
 
-	err := output.client.UpdateTopic(*output.service, *output.topic, topic)
+	err := output.kafkamgr.UpdateTopic(*output.service, *output.topic, topic)
 	if err != nil {
 		return err
 	}
