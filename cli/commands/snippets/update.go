@@ -94,7 +94,7 @@ func (update *UpdateSnippetCmd) Run(args []string) error {
 
 	var memory uint64
 	if *update.mem != "" {
-		memory, err = bytefmt.ToBytes(*update.mem)
+		memory, err = lfmt.ToBytes(*update.mem)
 		if err != nil {
 			return err
 		}

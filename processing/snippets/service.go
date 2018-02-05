@@ -138,16 +138,19 @@ func (s *SnippetsService) StartSnippetById(accountId string,
 	return invocationId, nil
 }
 
-func (s *SnippetsService) invokeSnippetDirect(accountId string,
-	snippet *model.Snippet) (string, error) {
+func (s *SnippetsService) invokeSnippetDirect(accountId string, snippet *model.Snippet) (string, error) {
 	mlog.Debug("Starting direct snippet invocation for accountId: %v", accountId)
 	eventsProducer, err := s.SnippetManagerStore.GetManager(snippet.Runtime)
 	if err != nil {
 		return "", err
 	}
 
+	vuuid, err := uuid.NewV4()
+	if err != nil {
+		return "", err
+	}
 	start := &events.SnippetStartEvent{
-		SnippetId: uuid.NewV4().String(),
+		SnippetId: vuuid.String(),
 		MainFn:    snippet.MainFn,
 		Runtime:   snippet.Runtime,
 		Timeout:   snippet.Timeout,

@@ -23,8 +23,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lavaorg/lrt/x/accounts"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/thingspace/api"
 	"time"
 )
 
@@ -34,7 +34,7 @@ const (
 )
 
 // SetCookie is a helper method used to create HTTP Cookie for the specified Auth Token.
-func SetCookie(context *gin.Context, token *api.Token) error {
+func SetCookie(context *gin.Context, token *accounts.Token) error {
 	mlog.Debug("SetCookie")
 
 	// TODO - We need to protect the token, e.g., encode with something
@@ -66,7 +66,7 @@ func SetCookie(context *gin.Context, token *api.Token) error {
 }
 
 // GetToken is a helper method used to get Auth Token from HTTP Cookie.
-func GetToken(context *gin.Context) (*api.Token, error) {
+func GetToken(context *gin.Context) (*accounts.Token, error) {
 	mlog.Debug("GetToken")
 
 	// Get the cookie from the request
@@ -84,7 +84,7 @@ func GetToken(context *gin.Context) (*api.Token, error) {
 	}
 
 	// Umarshal the auth token.
-	var token api.Token
+	var token accounts.Token
 
 	if err := json.Unmarshal(decodedToken, &token); err != nil {
 		return nil, fmt.Errorf("Failed to unmarshal HTTP cookie %s with error: %v", HTTPCookieName, err)

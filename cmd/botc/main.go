@@ -18,12 +18,11 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"github.com/lavaorg/lrt/x/mlog"
-	kafkaClient "github.com/lavaorg/northstar/kafkamngr/client"
-	"github.com/lavaorg/northstar/kafkamngr/model"
 	marathonClient "github.com/lavaorg/lrt/x/marathon"
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/kafkamgr"
 	"github.com/lavaorg/northstar/rte-lua/botc/config"
+	"os"
 	"strconv"
 )
 
@@ -35,7 +34,7 @@ func main() {
 		os.Exit(-1)
 	}
 
-	kClient, err := kafkaClient.NewKafkaMngrClient()
+	kClient, err := kafkamgr.NewKafkaMngrClient()
 	if err != nil {
 		mlog.Error("Failed to create kafka mngr client: %v", err)
 		os.Exit(-1)
@@ -62,7 +61,7 @@ func main() {
 	mlog.Debug("Number of instances %v, workers %v and partitions %v",
 		*app.Instances, nWorkers, nPartitions)
 
-	topic := model.Topic{Partitions: nPartitions}
+	topic := kafkamgr.Topic{Partitions: nPartitions}
 	mErr := kClient.UpdateTopic(config.RTEServiceName, config.RTELuaCtrlTopic, &topic)
 	if mErr != nil {
 		mlog.Error("Failed to update topic: %s", mErr.Error())

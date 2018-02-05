@@ -56,7 +56,7 @@ func (output *AddTopicsCmd) Run(args []string) error {
 		Partitions:  *output.partitions,
 		Replication: *output.replication}
 
-	err := output.kafkamgr.CreateTopic(topic)
+	err := output.client.CreateTopic(topic)
 	if err != nil {
 		return err
 	}

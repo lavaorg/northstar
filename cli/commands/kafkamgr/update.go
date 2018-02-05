@@ -59,7 +59,7 @@ func (output *UpdateTopicsCmd) Run(args []string) error {
 		Partitions:  *output.partitions,
 		Replication: *output.replication}
 
-	err := output.kafkamgr.UpdateTopic(*output.service, *output.topic, topic)
+	err := output.client.UpdateTopic(*output.service, *output.topic, topic)
 	if err != nil {
 		return err
 	}

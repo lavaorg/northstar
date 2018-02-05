@@ -26,7 +26,7 @@ import (
 	"github.com/lavaorg/northstar/cli/commands/datasources"
 	"github.com/lavaorg/northstar/cli/commands/events"
 	"github.com/lavaorg/northstar/cli/commands/invoke"
-	"github.com/lavaorg/northstar/cli/commands/kafkamngr"
+	kafkamgrCmd "github.com/lavaorg/northstar/cli/commands/kafkamgr"
 	"github.com/lavaorg/northstar/cli/commands/mappings"
 	"github.com/lavaorg/northstar/cli/commands/object"
 	"github.com/lavaorg/northstar/cli/commands/snippets"
@@ -38,7 +38,7 @@ import (
 	invocationsDataClient "github.com/lavaorg/northstar/data/invocations/client"
 	mappingsDataClient "github.com/lavaorg/northstar/data/mappings/client"
 	snippetsDataClient "github.com/lavaorg/northstar/data/snippets/client"
-	kafkaMngrClient "github.com/lavaorg/northstar/kafkamngr/client"
+	kafkamgrClient "github.com/lavaorg/northstar/kafkamgr"
 	objectClient "github.com/lavaorg/northstar/object/client"
 	processEventsClient "github.com/lavaorg/northstar/processing/events/client"
 	processSnippetsClient "github.com/lavaorg/northstar/processing/snippets/client"
@@ -49,7 +49,7 @@ func printError(err error) {
 	os.Exit(1)
 }
 
-func InitParser(kafkaMngr *kafkaMngrClient.KafkaMngrClient,
+func InitParser(kafkaMngr *kafkamgrClient.KafkaMngrClient,
 	snippetsProcessing *processSnippetsClient.SnippetsClient,
 	eventsProcessing *processEventsClient.EventsClient,
 	snippetsData *snippetsDataClient.SnippetsClient,
@@ -69,9 +69,9 @@ func InitParser(kafkaMngr *kafkaMngrClient.KafkaMngrClient,
 	var err error
 
 	// Kafkamngr cmd
-	addTopic := kafkamngr.NewAddTopics(kafkaMngr)
-	listTopics := kafkamngr.NewListTopics(kafkaMngr)
-	updateTopic := kafkamngr.NewUpdateTopics(kafkaMngr)
+	addTopic := kafkamgrCmd.NewAddTopics(kafkaMngr)
+	listTopics := kafkamgrCmd.NewListTopics(kafkaMngr)
+	updateTopic := kafkamgrCmd.NewUpdateTopics(kafkaMngr)
 
 	// Snippets cmd
 	addSnippet := snippets.NewAddSnippet(snippetsData)

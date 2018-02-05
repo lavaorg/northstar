@@ -18,14 +18,14 @@ package middleware
 
 import (
 	"fmt"
-	"net/http"
-	"github.com/gin-gonic/gin"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/thingspace/api"
+	"github.com/gin-gonic/gin"
+	"github.com/lavaorg/lrt/x/accounts"
 	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/portal/model"
 	"github.com/lavaorg/northstar/portal/utils"
+	"net/http"
 )
 
 const (
@@ -39,8 +39,8 @@ const (
 // and a *gin.Context object, and return a boolean where true indicates that
 // the token was successfully extracted and the cookie was validated
 var cookieMap = map[string]interface{}{
-	"TNDP.Auth.HttpCookie" : HandleTNDPCookie,
-	"Ns.Auth.HttpCookie" : HandleNSCookie,
+	"TNDP.Auth.HttpCookie": HandleTNDPCookie,
+	"Ns.Auth.HttpCookie":   HandleNSCookie,
 }
 
 func HandleTNDPCookie(cookie *http.Cookie, context *gin.Context) bool {
@@ -63,7 +63,7 @@ func HandleTNDPCookie(cookie *http.Cookie, context *gin.Context) bool {
 			context.JSON(serviceError.HttpStatus, serviceError)
 		}
 
-		context.Set(AccessTokenKeyName, &api.Token{AccessToken : decrypted})
+		context.Set(AccessTokenKeyName, &accounts.Token{AccessToken: decrypted})
 		return true
 	}
 }
@@ -81,7 +81,7 @@ func Authorization(context *gin.Context) {
 	for key, val := range cookieMap {
 		cookie, err := context.Request.Cookie(key)
 		if err == nil {
-			if val.(func(*http.Cookie, *gin.Context)bool)(cookie, context) {
+			if val.(func(*http.Cookie, *gin.Context) bool)(cookie, context) {
 				mlog.Info("Request successfully validated using %s cookie", key)
 				context.Next()
 				authorized = true

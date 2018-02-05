@@ -90,7 +90,7 @@ func (invoke *InvokeSnippetDirectCmd) Run(args []string) error {
 
 	var memory uint64
 	if *invoke.mem != "" {
-		memory, err = bytefmt.ToBytes(*invoke.mem)
+		memory, err = lfmt.ToBytes(*invoke.mem)
 		if err != nil {
 			return err
 		}

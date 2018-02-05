@@ -29,14 +29,14 @@ import (
 	invocationData "github.com/lavaorg/northstar/data/invocations/client"
 	mappingData "github.com/lavaorg/northstar/data/mappings/client"
 	snippetsData "github.com/lavaorg/northstar/data/snippets/client"
-	kafkaMngr "github.com/lavaorg/northstar/kafkamngr/client"
+	"github.com/lavaorg/northstar/kafkamgr"
 	object "github.com/lavaorg/northstar/object/client"
 	eventsProcessing "github.com/lavaorg/northstar/processing/events/client"
 	snippetsProcessing "github.com/lavaorg/northstar/processing/snippets/client"
 )
 
 func main() {
-	kafkaMngr, mErr := kafkaMngr.NewKafkaMngrClient()
+	kafkamgr, mErr := kafkamgr.NewKafkaMngrClient()
 	if mErr != nil {
 		mlog.Error("Failed to create kafkaMngr client: %v", mErr)
 		os.Exit(-1)
@@ -108,7 +108,7 @@ func main() {
 		os.Exit(-1)
 	}
 
-	parser.InitParser(kafkaMngr,
+	parser.InitParser(kafkamgr,
 		snippetsProcessing,
 		eventsProcessing,
 		snippetsData,

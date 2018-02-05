@@ -42,7 +42,7 @@ func (d *ListTopicsCmd) Run(args []string) error {
 		return errors.New("Failed to parse cmd")
 	}
 
-	resp, err := d.kafkamgr.GetTopics()
+	resp, err := d.client.GetTopics()
 	if err != nil {
 		return err
 	}

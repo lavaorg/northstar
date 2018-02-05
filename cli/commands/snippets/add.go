@@ -90,7 +90,7 @@ func (create *AddSnippetCmd) Run(args []string) error {
 
 	var memory uint64
 	if *create.mem != "" {
-		memory, err = bytefmt.ToBytes(*create.mem)
+		memory, err = lfmt.ToBytes(*create.mem)
 		if err != nil {
 			return err
 		}

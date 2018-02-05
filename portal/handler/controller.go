@@ -21,10 +21,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
+	"github.com/lavaorg/lrt/x/accounts"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/thingspace"
-	"github.com/lavaorg/lrt/x/thingspace/api"
 	"github.com/lavaorg/northstar/portal/config"
 	"github.com/lavaorg/northstar/portal/middleware"
 	"github.com/lavaorg/northstar/portal/provider"
@@ -35,7 +34,7 @@ import (
 
 // Controller defines the structure for a portal controller.
 type Controller struct {
-	authClient     thingspace.AuthClient
+	authClient     accounts.AuthClient
 	userClient     *north.UserClient
 	clientId       string
 	clientSecret   string
@@ -54,7 +53,7 @@ func NewController() (*Controller, error) {
 
 	// Controller
 	controller := &Controller{
-		authClient:     thingspace.NewThingSpaceAuthClientWithProtocol(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceAuthHostPort),
+		authClient:     accounts.NewNSAuthClientWithProtocol(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceAuthHostPort),
 		userClient:     north.NewUserClient(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceUserHostPort),
 		clientId:       config.Configuration.ThingSpaceClientID,
 		clientSecret:   config.Configuration.ThingSpaceClientSecret,
@@ -109,7 +108,7 @@ func (controller *Controller) getBinding(method, contentType string) binding.Bin
 }
 
 // getAuthToken is a helper method used to return token from the request.
-func (controller *Controller) getAuthToken(context *gin.Context) (*api.Token, bool) {
+func (controller *Controller) getAuthToken(context *gin.Context) (*accounts.Token, bool) {
 	mlog.Debug("getAuthToken")
 
 	tokenInfo, found := context.Get(middleware.AccessTokenKeyName)
@@ -117,7 +116,7 @@ func (controller *Controller) getAuthToken(context *gin.Context) (*api.Token, bo
 		mlog.Error("Error, auth token was not found in gin context.")
 		return nil, false
 	}
-	token, valid := tokenInfo.(*api.Token)
+	token, valid := tokenInfo.(*accounts.Token)
 	if !valid {
 		mlog.Error("Error, could not convert interface to auth token.")
 		return nil, false

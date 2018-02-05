@@ -18,7 +18,7 @@ package main
 
 import (
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/rte"
+	"github.com/lavaorg/northstar/rte"
 	"github.com/lavaorg/northstar/rte/repl"
 	"os"
 )
