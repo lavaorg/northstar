@@ -35,7 +35,7 @@ import (
 	"github.com/lavaorg/northstar/rte-lua/modules/nsUtil"
 	pkgCfg "github.com/lavaorg/northstar/rte/config"
 	"github.com/lavaorg/northstar/rte/repl"
-	"github.com/layeh/gopher-luar"
+	"github.com/lavaorg/gopher-luar"
 	"time"
 )
 
