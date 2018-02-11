@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package middleware
+package portal
 
 import (
 	"fmt"
@@ -24,13 +24,9 @@ import (
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/portal/model"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 	"github.com/lavaorg/northstar/portal/utils"
 	"net/http"
-)
-
-const (
-	// AccessTokenKeyName defines the name of the Access Token key.
-	AccessTokenKeyName = "Ns.Auth.AccessToken"
 )
 
 // To authenticate another type of cookie, add the name of the cookie here
@@ -63,7 +59,7 @@ func HandleTNDPCookie(cookie *http.Cookie, context *gin.Context) bool {
 			context.JSON(serviceError.HttpStatus, serviceError)
 		}
 
-		context.Set(AccessTokenKeyName, &accounts.Token{AccessToken: decrypted})
+		context.Set(portalglobal.AccessTokenKeyName, &accounts.Token{AccessToken: decrypted})
 		return true
 	}
 }
@@ -71,7 +67,7 @@ func HandleTNDPCookie(cookie *http.Cookie, context *gin.Context) bool {
 func HandleNSCookie(cookie *http.Cookie, context *gin.Context) bool {
 	// Get the token from the request http cookie.
 	token, err := utils.GetToken(context)
-	context.Set(AccessTokenKeyName, token)
+	context.Set(portalglobal.AccessTokenKeyName, token)
 	return err == nil
 }
 

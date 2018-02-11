@@ -17,11 +17,11 @@ limitations under the License.
 package main
 
 import (
+	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/portal"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 	"os"
 	"os/signal"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/config"
-	"github.com/lavaorg/northstar/portal/service"
 	"syscall"
 )
 
@@ -44,25 +44,25 @@ func main() {
 	// Setup function used to recover from panics.
 	defer func() {
 		if r := recover(); r != nil {
-			mlog.Error("%s failed with panic %v", config.Configuration.ServiceName, r)
+			mlog.Error("%s failed with panic %v", portalglobal.Config.ServiceName, r)
 		}
 	}()
 
 	// Create the service
-	mlog.Event("%s starting", config.Configuration.ServiceName)
-	service, err := service.NewService()
+	mlog.Event("%s starting", portalglobal.Config.ServiceName)
+	service, err := portal.NewService()
 	if err != nil {
 		mlog.Error("Failed to start service with error %s.\n", err.Error())
 		os.Exit(CreationError)
 	}
 
-	// Start the service.
+	// Start the portal.
 	if err = service.Start(); err != nil {
 		mlog.Error("Failed to start service with error %s.\n", err.Error())
 		os.Exit(StartupError)
 	}
 
-	mlog.Event("%s shutdown", config.Configuration.ServiceName)
+	mlog.Event("%s shutdown", portalglobal.Config.ServiceName)
 }
 
 // Helper method used to handle abort and termination signals.

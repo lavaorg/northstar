@@ -23,11 +23,11 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	"github.com/pborman/uuid"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/config"
 	"github.com/lavaorg/northstar/portal/model"
+	"github.com/lavaorg/northstar/portal/portalglobal"
+	"github.com/pborman/uuid"
 )
 
 // GetConnection sets up the websocket (creates a thread-safe map to store data as well as the websocket reads from
@@ -44,8 +44,8 @@ func (controller *Controller) GetConnection(context *gin.Context) {
 	}
 
 	wsUpgrader := websocket.Upgrader{
-		ReadBufferSize:  config.Configuration.ConnectionBufferSize,
-		WriteBufferSize: config.Configuration.ConnectionBufferSize,
+		ReadBufferSize:  portalglobal.Config.ConnectionBufferSize,
+		WriteBufferSize: portalglobal.Config.ConnectionBufferSize,
 		CheckOrigin: func(r *http.Request) bool {
 			return true
 		},
@@ -181,5 +181,5 @@ func (controller *Controller) processEvent(token string, connectionId string, ev
 // getEventcallbackURL is a helper method used to generate callback url.
 func (controller *Controller) getEventCallbackURL(connectionID, eventID string, eventType model.EventType) string {
 	return fmt.Sprintf("http://%s/%s/%s/connections/%s/events/%s/callbacks/%s",
-		config.Configuration.ServiceHostPort, model.InternalContext, model.Version, connectionID, eventID, eventType.ToString())
+		portalglobal.Config.ServiceHostPort, model.InternalContext, model.Version, connectionID, eventID, eventType.ToString())
 }

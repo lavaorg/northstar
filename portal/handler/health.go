@@ -21,7 +21,7 @@ import (
 
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 )
 
 var (
@@ -43,7 +43,7 @@ func (controller *Controller) GetHealth() *management.Health {
 
 	health := &management.Health{
 		HttpStatus:  http.StatusOK,
-		Name:        config.Configuration.ServiceName,
+		Name:        portalglobal.Config.ServiceName,
 		Id:          S_HEALTH,
 		Description: serviceStates.Get(S_HEALTH),
 	}

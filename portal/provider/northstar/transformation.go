@@ -230,36 +230,6 @@ func (provider *NorthStarPortalProvider) GetScheduleEventSchemas(token string) (
 		},
 	}
 
-	// Get ThingSpace device models needed to create device-base event schemas.
-	deviceModels, mErr := provider.thingSpaceClient.GetModels(token)
-
-	if mErr != nil {
-		mlog.Error("Get model returned error: %v", mErr)
-		return nil, management.GetExternalError(fmt.Sprintf("Failed to get models from thingspace with error: %s", mErr.Description))
-	}
-
-	// For every device model create a new event schema.
-	for _, deviceModel := range deviceModels {
-		// Create the event schema.
-		schema := model.ScheduleEventSchema{
-			Category:    model.DeviceEvent,
-			DeviceKind:  deviceModel.ModelKind,
-			Description: model.DeviceEventDescription,
-			Fields:      make([]model.ScheduleEventFieldSchema, 0),
-		}
-
-		for deviceModelFieldName, deviceModelField := range deviceModel.Fields {
-			schemaField := model.ScheduleEventFieldSchema{
-				Name: deviceModelFieldName,
-				Type: deviceModelField.Type,
-			}
-			schema.Fields = append(schema.Fields, schemaField)
-		}
-
-		if len(schema.Fields) > 0 {
-			schemas = append(schemas, schema)
-		}
-	}
 	return schemas, nil
 }
 

@@ -19,14 +19,12 @@ package northstar
 import (
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/northstarapi/client"
-	"github.com/lavaorg/northstar/portal/config"
-	"github.com/lavaorg/northstar/portal/utils/thingspace"
 )
 
 // NorthStarPortalProvider defines the type that implements the PortalProvider.
 type NorthStarPortalProvider struct {
+	// Access to the NorthStar API service
 	northstarApiClient *client.Client
-	thingSpaceClient   *thingspace.UserClient
 }
 
 // NewNorthStarPortalProvider returns a new NorthStar Portal Provider.
@@ -40,8 +38,6 @@ func NewNorthStarPortalProvider(protocol string, hostAndPort string) (*NorthStar
 
 	provider := &NorthStarPortalProvider{
 		northstarApiClient: northstarApiClient,
-		thingSpaceClient:   thingspace.NewUserClient(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceUserHostPort),
 	}
-
 	return provider, nil
 }

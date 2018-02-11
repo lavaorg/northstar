@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package service
+package portal
 
 import (
 	"fmt"
@@ -23,11 +23,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/middleware"
-	log "github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/config"
+	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/portal/handler"
-	portalMiddleware "github.com/lavaorg/northstar/portal/middleware"
 	"github.com/lavaorg/northstar/portal/model"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 )
 
 //Service defines the base structure to handle the portal service.
@@ -38,17 +37,16 @@ type Service struct {
 
 //NewService intializes the portal service.
 func NewService() (*Service, error) {
-	log.Debug("NewService")
+	mlog.Debug("NewService")
 
-	err := config.Load()
+	err := portalglobal.Load()
 	if err != nil {
-		log.Error("Error, failed to load service configuration with error: %s\n", err.Error())
 		return nil, err
 	}
 
 	controller, err := handler.NewController()
 	if err != nil {
-		log.Error("Error, failed to create portal service controller with error %s.\n", err.Error())
+		mlog.Error("Error, failed to create portal service controller with error %s.\n", err.Error())
 		return nil, err
 	}
 
@@ -88,7 +86,7 @@ func NewService() (*Service, error) {
 
 	// Service RESTful API
 	v1 := engine.Group(path.Join(model.Context, model.Version))
-	v1.Use(portalMiddleware.Authorization)
+	v1.Use(Authorization)
 	{
 		// Users API
 		user := v1.Group("/user")
@@ -154,7 +152,7 @@ func NewService() (*Service, error) {
 
 //Start starts initializes the HTTP endpoints and management library
 func (service *Service) Start() (err error) {
-	log.Debug("Start")
+	mlog.Debug("Start")
 
-	return management.Listen(fmt.Sprintf(":%s", config.Configuration.Port))
+	return management.Listen(fmt.Sprintf(":%s", portalglobal.Config.Port))
 }

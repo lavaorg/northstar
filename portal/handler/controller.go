@@ -24,18 +24,15 @@ import (
 	"github.com/lavaorg/lrt/x/accounts"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/config"
-	"github.com/lavaorg/northstar/portal/middleware"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 	"github.com/lavaorg/northstar/portal/provider"
 	"github.com/lavaorg/northstar/portal/provider/northstar"
 	"github.com/lavaorg/northstar/portal/utils"
-	north "github.com/lavaorg/northstar/portal/utils/thingspace"
 )
 
 // Controller defines the structure for a portal controller.
 type Controller struct {
 	authClient     accounts.AuthClient
-	userClient     *north.UserClient
 	clientId       string
 	clientSecret   string
 	userScopes     string
@@ -46,18 +43,17 @@ type Controller struct {
 // NewController returns a new controller
 func NewController() (*Controller, error) {
 	mlog.Debug("NewController")
-	portalProvider, err := northstar.NewNorthStarPortalProvider(config.Configuration.NorthstarAPIProtocol, config.Configuration.NorthstarAPIHostPort)
+	portalProvider, err := northstar.NewNorthStarPortalProvider(portalglobal.Config.NorthstarAPIProtocol, portalglobal.Config.NorthstarAPIHostPort)
 	if err != nil {
 		return nil, err
 	}
 
 	// Controller
 	controller := &Controller{
-		authClient:     accounts.NewNSAuthClientWithProtocol(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceAuthHostPort),
-		userClient:     north.NewUserClient(config.Configuration.ThingspaceProtocol, config.Configuration.ThingSpaceUserHostPort),
-		clientId:       config.Configuration.ThingSpaceClientID,
-		clientSecret:   config.Configuration.ThingSpaceClientSecret,
-		userScopes:     config.Configuration.ThingSpaceUserScopes,
+		authClient:     accounts.NewNSAuthClientWithProtocol(portalglobal.Config.AcctProtocol, portalglobal.Config.AcctAuthHostPort),
+		clientId:       portalglobal.Config.AcctClientID,
+		clientSecret:   portalglobal.Config.AcctClientSecret,
+		userScopes:     portalglobal.Config.AcctUserScopes,
 		portalProvider: portalProvider,
 		writers:        utils.NewThreadSafeMap(),
 	}
@@ -111,7 +107,7 @@ func (controller *Controller) getBinding(method, contentType string) binding.Bin
 func (controller *Controller) getAuthToken(context *gin.Context) (*accounts.Token, bool) {
 	mlog.Debug("getAuthToken")
 
-	tokenInfo, found := context.Get(middleware.AccessTokenKeyName)
+	tokenInfo, found := context.Get(portalglobal.AccessTokenKeyName)
 	if !found {
 		mlog.Error("Error, auth token was not found in gin context.")
 		return nil, false

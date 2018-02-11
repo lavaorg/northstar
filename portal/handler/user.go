@@ -22,8 +22,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/portal/middleware"
 	"github.com/lavaorg/northstar/portal/model"
+	"github.com/lavaorg/northstar/portal/portalglobal"
 	"github.com/lavaorg/northstar/portal/utils"
 )
 
@@ -38,33 +38,24 @@ func (controller *Controller) GetUser(context *gin.Context) {
 
 	// Get the token for current request.
 	token, found := controller.getAuthToken(context)
-
 	if !found {
-		mlog.Error("Failed to get access token from context key %s.", middleware.AccessTokenKeyName)
+		mlog.Error("Failed to get access token from context key %s.", portalglobal.AccessTokenKeyName)
 		controller.RenderServiceError(context, management.ErrorInternal)
 		return
 	}
+	mlog.Info("Auth token retrieved:%v", token)
 
-	// Get information of authenticated user.
-	thingSpaceUser, mErr := controller.userClient.GetUser(token.AccessToken)
-
-	if mErr != nil {
-		mlog.Error("Failed to get user information with error: %v", mErr)
-		controller.RenderServiceError(context, mErr)
-		return
-	}
-
-	// Create object for authenticated user.
+	mlog.Info("TODO:get user info from NS accounts")
+	//RAU:TODO:get info from an tbd NS accounts.
 	user := model.User{
-		Id:          thingSpaceUser.Id,
-		DisplayName: thingSpaceUser.DisplayName,
+		Id:          "fake-id",
+		DisplayName: "fake-name",
 		Name: model.Name{
-			First:  thingSpaceUser.FirstName,
-			Middle: thingSpaceUser.MiddleName,
-			Last:   thingSpaceUser.LastName,
+			First:  "first",
+			Middle: "mid",
+			Last:   "last",
 		},
-		Email:   thingSpaceUser.Email,
-		ImageId: thingSpaceUser.ImageId,
+		Email: "noone@nothing.com",
 	}
 
 	context.JSON(http.StatusOK, user)
