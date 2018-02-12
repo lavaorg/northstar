@@ -18,12 +18,12 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/northstarapi/config"
 	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 	"github.com/lavaorg/northstar/northstarapi/utils"
+	"net/http"
 	"strconv"
 )
 
@@ -50,7 +50,7 @@ func (controller *Controller) TriggerExecution(context *gin.Context) {
 	}
 
 	//Verify the checksum if it's required.
-	if config.EnforceChecksum {
+	if nsapiglobal.Config.EnforceChecksum {
 		mErr := controller.templateProvider.TemplateExists(executionRequest.Code)
 		if mErr != nil {
 			mlog.Error("Failed to trigger execution. Custom code execution is disabled.")

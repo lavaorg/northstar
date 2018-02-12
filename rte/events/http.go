@@ -19,7 +19,7 @@ package events
 import (
 	"fmt"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/northstarapi/internalClient"
+	"github.com/lavaorg/northstar/northstarapi"
 	"github.com/lavaorg/northstar/northstarapi/model"
 	"github.com/lavaorg/northstar/rte/config"
 	"github.com/lavaorg/northstar/rte/stats"
@@ -52,7 +52,7 @@ func (e HttpEventsProducer) SnippetOutput(accountId string, output *SnippetOutpu
 		Callback:         output.Callback}
 
 	mlog.Debug("Creating client for NS API endpoint: %v", nsAPIHostPort)
-	client, err := internalClient.NewInternalClient("http", nsAPIHostPort)
+	client, err := northstarapi.NewInternalClient("http", nsAPIHostPort)
 	if err != nil {
 		timer.Stop()
 		stats.ErrSnippetOutputCallback.Incr()

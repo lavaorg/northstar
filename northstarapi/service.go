@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package service
+package northstarapi
 
 import (
 	"fmt"
@@ -25,9 +25,9 @@ import (
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/middleware"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/northstarapi/config"
 	"github.com/lavaorg/northstar/northstarapi/handler"
 	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 )
 
 // Defines the type that represents the service.
@@ -38,11 +38,10 @@ type Service struct {
 
 // Returns a new service instance.
 func NewService() (*Service, error) {
-	mlog.Info("NewService")
 
 	// Load Configuration and create a controller
-	if err := config.Load(); err != nil {
-		return nil, fmt.Errorf("Failed to load config with error %s.", err.Error())
+	if err := nsapiglobal.Load(); err != nil {
+		return nil, err
 	}
 
 	controller, err := handler.NewController()
@@ -76,7 +75,7 @@ func NewService() (*Service, error) {
 
 	// Register service APIs
 	v1 := engine.Group(path.Join(model.Context, model.Version))
-	v1.Use(middleware.Authorization(&config.Configuration.Scopes, authClient))
+	v1.Use(middleware.Authorization(&nsapiglobal.Config.Scopes, authClient))
 	{
 		// Register User endpoints.
 		v1.POST("/users/actions/search", controller.SearchUsers)

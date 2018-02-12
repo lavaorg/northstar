@@ -21,7 +21,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/lavaorg/northstar/northstarapi/config"
+	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 )
 
 const (
@@ -123,12 +123,12 @@ func (transformation *Transformation) Validate() error {
 		return fmt.Errorf("The entry point is missing.")
 	}
 
-	if transformation.Memory > config.Configuration.MaxMemory {
-		return fmt.Errorf("The requested memory %d is greater than the max of: %d", transformation.Memory, config.Configuration.MaxMemory)
+	if transformation.Memory > nsapiglobal.Config.MaxMemory {
+		return fmt.Errorf("The requested memory %d is greater than the max of: %d", transformation.Memory, nsapiglobal.Config.MaxMemory)
 	}
 
 	if transformation.Memory == 0 {
-		transformation.Memory = config.Configuration.DefaultMemory
+		transformation.Memory = nsapiglobal.Config.DefaultMemory
 	}
 
 	// Validate the Code required fields.

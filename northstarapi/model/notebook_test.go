@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/lavaorg/northstar/northstarapi/config"
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 /*
@@ -168,7 +168,7 @@ func TestValidateNotebook(t *testing.T) {
 						Timeout:    180,
 					},
 					Settings: Settings{
-						Memory: config.Configuration.MaxMemory + 1,
+						Memory: nsapiglobal.Config.MaxMemory + 1,
 					},
 				},
 			},

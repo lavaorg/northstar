@@ -22,8 +22,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/northstarapi/config"
 	"github.com/lavaorg/northstar/northstarapi/model"
+	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 	"github.com/lavaorg/northstar/northstarapi/utils"
 )
 
@@ -31,7 +31,7 @@ import (
 func (controller *Controller) CreateTransformation(context *gin.Context) {
 	mlog.Info("CreateTransformation")
 
-	if config.EnforceChecksum {
+	if nsapiglobal.Config.EnforceChecksum {
 		utils.ErrCreateTransformation.Incr()
 		controller.RenderServiceError(context, model.ErrorOperationDisabled)
 		return
@@ -180,7 +180,7 @@ func (controller *Controller) ListTransformations(context *gin.Context) {
 func (controller *Controller) UpdateTransformation(context *gin.Context) {
 	mlog.Info("UpdateTransformation")
 
-	if config.EnforceChecksum {
+	if nsapiglobal.Config.EnforceChecksum {
 		utils.ErrUpdateTransformation.Incr()
 		controller.RenderServiceError(context, model.ErrorOperationDisabled)
 		return
@@ -265,7 +265,7 @@ func (controller *Controller) DeleteTransformation(context *gin.Context) {
 func (controller *Controller) ExecuteTransformation(context *gin.Context) {
 	mlog.Info("ExecuteTransformation")
 
-	if config.EnforceChecksum {
+	if nsapiglobal.Config.EnforceChecksum {
 		utils.ErrExecuteTransformation.Incr()
 		controller.RenderServiceError(context, model.ErrorOperationDisabled)
 		return

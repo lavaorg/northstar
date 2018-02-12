@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lavaorg/northstar/northstarapi/config"
 	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 )
 
 const (
@@ -93,12 +93,12 @@ func (cell *Cell) Validate() error {
 	input := &cell.Input
 	if input.Timeout <= 0 {
 		mlog.Debug("No timeout provided, falling back to default")
-		input.Timeout = config.MaxTimeout
+		input.Timeout = nsapiglobal.Config.MaxTimeout
 	}
 
-	if input.Timeout > config.MaxTimeout {
+	if input.Timeout > nsapiglobal.Config.MaxTimeout {
 		return fmt.Errorf("The timeout value is out of range (%d of %d).",
-			input.Timeout, config.MaxTimeout)
+			input.Timeout, nsapiglobal.Config.MaxTimeout)
 	}
 
 	// Validate the body is not empty.
@@ -107,14 +107,14 @@ func (cell *Cell) Validate() error {
 	}
 
 	//Validate that the code isn't too large
-	if len(input.Body) > config.MaxCodeSize {
+	if len(input.Body) > nsapiglobal.Config.MaxCodeSize {
 		return fmt.Errorf("The input body is too large.")
 	}
 
 	//Validate arg count
-	if len(input.Arguments) > config.MaxArgCount {
+	if len(input.Arguments) > nsapiglobal.Config.MaxArgCount {
 		return fmt.Errorf("Number of arguments is too high (%d of %d).",
-			len(input.Arguments), config.MaxArgCount)
+			len(input.Arguments), nsapiglobal.Config.MaxArgCount)
 	}
 
 	// Validate the cell name is not empty.
@@ -142,8 +142,8 @@ type Settings struct {
 
 // Validate validates the settings
 func (settings *Settings) Validate() error {
-	if settings.Memory > config.Configuration.MaxMemory {
-		return fmt.Errorf("Requested memory (%d) is greater than the max of: %d.", settings.Memory, config.Configuration.MaxMemory)
+	if settings.Memory > nsapiglobal.Config.MaxMemory {
+		return fmt.Errorf("Requested memory (%d) is greater than the max of: %d.", settings.Memory, nsapiglobal.Config.MaxMemory)
 	}
 
 	return nil
@@ -163,7 +163,7 @@ func (settings *Settings) UnmarshalJSON(data []byte) error {
 
 	//If the memory is unset, set it to the default.
 	if value.Memory == 0 {
-		value.Memory = config.Configuration.DefaultMemory
+		value.Memory = nsapiglobal.Config.DefaultMemory
 	}
 
 	*settings = Settings(value)

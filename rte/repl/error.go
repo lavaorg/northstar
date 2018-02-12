@@ -15,16 +15,3 @@ limitations under the License.
 */
 
 package repl
-
-type Error struct {
-	Status      string `json:"status,omitempty"`
-	Description string `json:"description,omitempty"`
-}
-
-func (e Error) Error() string {
-	return e.Description
-}
-
-func NewError(status string, description string) *Error {
-	return &Error{Status: status, Description: description}
-}

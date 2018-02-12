@@ -24,8 +24,7 @@ import (
 	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
-	"github.com/lavaorg/northstar/rte/events"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 
 	"bytes"
 
@@ -255,13 +254,13 @@ func (provider *NorthStarExecutionProvider) StopExecution(accountId string, exec
 
 // Defines the map used to translate output status.
 var outputStatusCodeMap = map[string]model.OutputStatusCode{
-	repl.SNIPPET_RUN_FINISHED:    model.OutputSuccessStatus,
-	repl.SNIPPET_REPL_FAILED:     model.OutputFailedStatus,
-	repl.SNIPPET_CODE_GET_FAILED: model.CodeGetFailedStatus,
-	repl.SNIPPET_RUN_TIMEDOUT:    model.OutputTimeoutStatus,
-	repl.SNIPPET_OUT_OF_MEMORY:   model.OutputOutOfMemoryStatus,
-	events.SNIPPET_START_EVENT:   model.OutputRunningStatus,
-	events.SNIPPET_RUNNING_EVENT: model.OutputRunningStatus,
+	rtepub.SNIPPET_RUN_FINISHED:    model.OutputSuccessStatus,
+	rtepub.SNIPPET_REPL_FAILED:     model.OutputFailedStatus,
+	rtepub.SNIPPET_CODE_GET_FAILED: model.CodeGetFailedStatus,
+	rtepub.SNIPPET_RUN_TIMEDOUT:    model.OutputTimeoutStatus,
+	rtepub.SNIPPET_OUT_OF_MEMORY:   model.OutputOutOfMemoryStatus,
+	rtepub.SNIPPET_START_EVENT:     model.OutputRunningStatus,
+	rtepub.SNIPPET_RUNNING_EVENT:   model.OutputRunningStatus,
 }
 
 // Returns output status for the specified execution results.

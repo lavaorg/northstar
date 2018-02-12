@@ -18,15 +18,15 @@ package utils
 
 import (
 	"github.com/lavaorg/northstar/northstarapi/model"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 )
 
 // Defines the map used to translate output status.
 var outputStatusCodeMap = map[string]model.OutputStatusCode{
-	repl.SNIPPET_RUN_FINISHED:    model.OutputSuccessStatus,
-	repl.SNIPPET_REPL_FAILED:     model.OutputFailedStatus,
-	repl.SNIPPET_CODE_GET_FAILED: model.OutputInternalErrorStatus,
-	repl.SNIPPET_RUN_TIMEDOUT:    model.OutputTimeoutStatus,
+	rtepub.SNIPPET_RUN_FINISHED:    model.OutputSuccessStatus,
+	rtepub.SNIPPET_REPL_FAILED:     model.OutputFailedStatus,
+	rtepub.SNIPPET_CODE_GET_FAILED: model.OutputInternalErrorStatus,
+	rtepub.SNIPPET_RUN_TIMEDOUT:    model.OutputTimeoutStatus,
 }
 
 // Returns output status for the specified execution results.

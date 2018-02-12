@@ -14,21 +14,38 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package internalClient
+package northstarapi
 
 import (
 	"fmt"
-
 	"github.com/gin-gonic/gin"
 	lb "github.com/lavaorg/lrt/x/httpclientlb"
+	"github.com/lavaorg/lrt/x/management"
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
+)
+
+const (
+	ExecutionsPath = "callbacks"
 )
 
 // InternalClient defines the type used to represent a service client.
 type InternalClient struct {
 	baseUrl  string
 	lbClient *lb.LbClient
+}
+
+// ExecutionCallback processess the callback for an execution.
+func (client *InternalClient) ExecutionCallback(response *model.ExecutionResponse) *management.Error {
+	mlog.Debug("ExecutionCallback: response:%+v", response)
+	path := client.getResourcePath(ExecutionsPath) + "/execution"
+
+	// If error, return.
+	if _, mErr := client.lbClient.PostJSON(path, response); mErr != nil {
+		return mErr
+	}
+
+	return nil
 }
 
 // NewInternalClient returns a new instance of the internal client.
