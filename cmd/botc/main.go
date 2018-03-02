@@ -21,9 +21,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/lavaorg/lrt/x/config"
-	marathonClient "github.com/lavaorg/lrt/x/marathon"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/config"
+	marathonClient "github.com/lavaorg/lrtx/marathon"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/kafkamgr"
 	rteCfg "github.com/lavaorg/northstar/rte/config"
 	"github.com/lavaorg/northstar/rte/topics"

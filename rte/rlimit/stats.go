@@ -17,7 +17,7 @@ limitations under the License.
 package rlimit
 
 import (
-	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lrtx/stats"
 )
 
 var (

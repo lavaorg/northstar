@@ -20,8 +20,8 @@ import (
 	"sync"
 
 	"github.com/gocql/gocql"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/data/util"
 )
 

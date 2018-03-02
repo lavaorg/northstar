@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/cron/model"
 	"github.com/lavaorg/northstar/cron/scheduler"
 	"github.com/lavaorg/northstar/cron/util"

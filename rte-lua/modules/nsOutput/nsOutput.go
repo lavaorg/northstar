@@ -17,7 +17,7 @@ limitations under the License.
 package nsOutput
 
 import (
-	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrtx/config"
 	"github.com/lavaorg/lua"
 )
 

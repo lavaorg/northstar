@@ -21,7 +21,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
 	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 	"github.com/lavaorg/northstar/northstarapi/utils"

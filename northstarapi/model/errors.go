@@ -19,7 +19,7 @@ package model
 import (
 	"net/http"
 
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 )
 
 const (

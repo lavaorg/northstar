@@ -18,7 +18,7 @@ package nsObject
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/object/client"
 	"github.com/lavaorg/northstar/object/model"

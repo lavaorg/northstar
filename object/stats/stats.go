@@ -17,7 +17,7 @@ limitations under the License.
 package stats
 
 import (
-	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lrtx/stats"
 )
 
 var (

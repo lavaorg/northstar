@@ -20,8 +20,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/portal/model"
 	"strings"
 )

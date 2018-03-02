@@ -21,9 +21,9 @@ import (
 	"path"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/middleware"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/middleware"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/portal/handler"
 	"github.com/lavaorg/northstar/portal/model"
 	"github.com/lavaorg/northstar/portal/portalglobal"

@@ -17,8 +17,8 @@ limitations under the License.
 package northstar
 
 import (
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	dataStreamClient "github.com/lavaorg/northstar/data/stream/client"
 	dataStreamModel "github.com/lavaorg/northstar/data/stream/model"
 	dpeStreamClient "github.com/lavaorg/northstar/dpe-stream/master/client"

@@ -20,7 +20,7 @@ import (
 	"net/http"
 
 	"fmt"
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 )
 
 // Define user specific errors returned by the API.

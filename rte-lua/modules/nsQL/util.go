@@ -19,7 +19,7 @@ package nsQL
 import (
 	"errors"
 	"os"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/cassandra"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/spark"

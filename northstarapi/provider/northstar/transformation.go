@@ -22,9 +22,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/lavaorg/lrt/x/lfmt"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/lfmt"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	invocation "github.com/lavaorg/northstar/data/invocations/client"
 	invocationModel "github.com/lavaorg/northstar/data/invocations/model"
 	snippets "github.com/lavaorg/northstar/data/snippets/client"

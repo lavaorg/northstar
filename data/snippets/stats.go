@@ -16,7 +16,7 @@ limitations under the License.
 
 package snippets
 
-import "github.com/lavaorg/lrt/x/stats"
+import "github.com/lavaorg/lrtx/stats"
 
 var (
 	s             = stats.New("snippetsdata")

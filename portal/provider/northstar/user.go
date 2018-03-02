@@ -19,8 +19,8 @@ package northstar
 import (
 	"fmt"
 
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	northstarApiModel "github.com/lavaorg/northstar/northstarapi/model"
 	"github.com/lavaorg/northstar/portal/model"
 )

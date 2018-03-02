@@ -17,7 +17,7 @@ limitations under the License.
 package main
 
 import (
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte"
 	"github.com/lavaorg/northstar/rte/rtepub"
 	"os"

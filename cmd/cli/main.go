@@ -19,7 +19,7 @@ package main
 import (
 	"os"
 
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/cli/parser"
 	cron "github.com/lavaorg/northstar/cron/client"
 	cronData "github.com/lavaorg/northstar/data/cron/client"

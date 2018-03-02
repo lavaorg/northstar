@@ -17,7 +17,7 @@ limitations under the License.
 package scheduler
 
 import (
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/cron/model"
 	"github.com/robfig/cron"
 )

@@ -22,8 +22,8 @@ import (
 
 	"github.com/channelmeter/vault-gatekeeper-mesos/gatekeeper"
 	vaultapi "github.com/hashicorp/vault/api"
-	"github.com/lavaorg/lrt/x/config"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/config"
+	"github.com/lavaorg/lrtx/mlog"
 )
 
 var (

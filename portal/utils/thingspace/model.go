@@ -19,8 +19,8 @@ package thingspace
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"time"
 )
 

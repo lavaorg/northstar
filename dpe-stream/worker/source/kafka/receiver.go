@@ -17,9 +17,9 @@ limitations under the License.
 package kafka
 
 import (
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/msgq"
-	"github.com/lavaorg/lrt/x/service_master"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/msgq"
+	"github.com/lavaorg/lrtx/service_master"
 	"github.com/lavaorg/northstar/dpe-stream/config"
 	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
 	"github.com/lavaorg/northstar/dpe-stream/master/connection"

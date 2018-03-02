@@ -19,7 +19,7 @@ package main
 import (
 	"os"
 	"os/signal"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/object/service"
 	"syscall"
 )

@@ -21,7 +21,7 @@ import (
 	"crypto/cipher"
 	b64 "encoding/base64"
 	cryprand "crypto/rand"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"crypto/hmac"
 	"crypto/sha256"
 	"io"

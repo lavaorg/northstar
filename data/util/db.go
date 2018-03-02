@@ -23,8 +23,8 @@ import (
 	"time"
 
 	"github.com/gocql/gocql"
-	"github.com/lavaorg/lrt/x/mlog"
-	dktUtils "github.com/lavaorg/lrt/x/utils"
+	"github.com/lavaorg/lrtx/mlog"
+	dktUtils "github.com/lavaorg/lrtx/utils"
 	"github.com/lavaorg/northstar/data/config"
 )
 

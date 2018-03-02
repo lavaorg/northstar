@@ -22,9 +22,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/middleware"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/middleware"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
 	"github.com/lavaorg/northstar/northstarapi/provider"
 	"github.com/lavaorg/northstar/northstarapi/provider/northstar"

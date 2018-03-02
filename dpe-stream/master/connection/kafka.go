@@ -18,7 +18,7 @@ package connection
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/msgq"
+	"github.com/lavaorg/lrtx/msgq"
 )
 
 type KafkaConnection struct {

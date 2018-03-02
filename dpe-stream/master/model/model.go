@@ -20,7 +20,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/rte-lua/util"
 	"github.com/vmihailenco/msgpack"

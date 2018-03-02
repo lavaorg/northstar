@@ -18,8 +18,8 @@ package env
 
 import (
 	"os"
-	"github.com/lavaorg/lrt/x/config"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/config"
+	"github.com/lavaorg/lrtx/mlog"
 	"strings"
 )
 

@@ -26,7 +26,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	invocationsClient "github.com/lavaorg/northstar/data/invocations/client"
 	snippetsClient "github.com/lavaorg/northstar/data/snippets/client"
 	"github.com/lavaorg/northstar/rte/events/mocks"

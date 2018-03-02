@@ -17,8 +17,8 @@ limitations under the License.
 package nsQL
 
 import (
-	"github.com/lavaorg/lrt/x/luaext/gluamapper"
-	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lrtx/luaext/gluamapper"
+	"github.com/lavaorg/lrtx/stats"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsQL/compiler/cassandra"

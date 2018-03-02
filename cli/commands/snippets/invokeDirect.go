@@ -22,8 +22,8 @@ import (
 
 	"fmt"
 
-	"github.com/lavaorg/lrt/x/b64"
-	"github.com/lavaorg/lrt/x/lfmt"
+	"github.com/lavaorg/lrtx/b64"
+	"github.com/lavaorg/lrtx/lfmt"
 	"github.com/lavaorg/northstar/cli/commands"
 	"github.com/lavaorg/northstar/cli/util"
 	"github.com/lavaorg/northstar/processing/snippets/client"

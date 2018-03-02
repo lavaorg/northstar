@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	cronClient "github.com/lavaorg/northstar/cron/client"
 	cronModel "github.com/lavaorg/northstar/cron/model"
 	cronDataClient "github.com/lavaorg/northstar/data/cron/client"

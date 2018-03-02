@@ -17,7 +17,7 @@ limitations under the License.
 package s3
 
 import (
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 	"github.com/lavaorg/northstar/object/model"
 )
 

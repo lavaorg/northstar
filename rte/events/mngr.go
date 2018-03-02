@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 
 	"errors"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/msgq"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/msgq"
 	"github.com/lavaorg/northstar/data/invocations/client"
 	"github.com/lavaorg/northstar/data/invocations/model"
 	"github.com/lavaorg/northstar/rte/config"

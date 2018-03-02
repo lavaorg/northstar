@@ -18,8 +18,8 @@ package main
 
 import (
 	"os"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/cron/env"
 	"github.com/lavaorg/northstar/cron/service"
 	cronDataClient "github.com/lavaorg/northstar/data/cron/client"

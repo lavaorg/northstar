@@ -16,7 +16,7 @@ limitations under the License.
 
 package cron
 
-import "github.com/lavaorg/lrt/x/stats"
+import "github.com/lavaorg/lrtx/stats"
 
 var (
 	s          = stats.New("crondata")

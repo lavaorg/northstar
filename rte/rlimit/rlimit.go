@@ -18,7 +18,7 @@ package rlimit
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte/config"
 	"io/ioutil"
 	"runtime"

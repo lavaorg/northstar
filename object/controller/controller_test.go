@@ -28,7 +28,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 	"github.com/lavaorg/northstar/object/mocks/storage"
 	"github.com/lavaorg/northstar/object/model"
 	"github.com/lavaorg/northstar/object/util"

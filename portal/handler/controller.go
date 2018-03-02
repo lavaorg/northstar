@@ -21,9 +21,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	"github.com/lavaorg/lrt/x/accounts"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/accounts"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/portal/portalglobal"
 	"github.com/lavaorg/northstar/portal/provider"
 	"github.com/lavaorg/northstar/portal/provider/northstar"

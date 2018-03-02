@@ -17,7 +17,7 @@ package kafkamgr
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lysu/kazoo-go"
 	"time"
 )

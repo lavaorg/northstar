@@ -19,7 +19,7 @@ package scheduler
 import (
 	"fmt"
 
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 	"github.com/lavaorg/northstar/northstarapi/model"
 )
 

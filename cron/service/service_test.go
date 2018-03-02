@@ -27,7 +27,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lavaorg/lrt/x/management"
+	"github.com/lavaorg/lrtx/management"
 	"github.com/lavaorg/northstar/cron/model"
 	"github.com/lavaorg/northstar/cron/scheduler"
 	"github.com/lavaorg/northstar/cron/util"

@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	eventDataClient "github.com/lavaorg/northstar/data/events/client"
 	eventDataModel "github.com/lavaorg/northstar/data/events/model"
 	mappingDataClient "github.com/lavaorg/northstar/data/mappings/client"

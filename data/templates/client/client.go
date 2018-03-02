@@ -19,8 +19,8 @@ package client
 import (
 	"fmt"
 
-	lb "github.com/lavaorg/lrt/x/httpclientlb"
-	"github.com/lavaorg/lrt/x/management"
+	lb "github.com/lavaorg/lrtx/httpclientlb"
+	"github.com/lavaorg/lrtx/management"
 	"github.com/lavaorg/northstar/data/templates/model"
 	"github.com/lavaorg/northstar/data/util"
 )

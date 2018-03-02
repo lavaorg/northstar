@@ -20,9 +20,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	lb "github.com/lavaorg/lrt/x/httpclientlb"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	lb "github.com/lavaorg/lrtx/httpclientlb"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/data/datasources/model"
 	"github.com/lavaorg/northstar/data/util"
 )

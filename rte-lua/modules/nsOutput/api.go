@@ -17,7 +17,7 @@ limitations under the License.
 package nsOutput
 
 import (
-	"github.com/lavaorg/lrt/x/luaext/gluamapper"
+	"github.com/lavaorg/lrtx/luaext/gluamapper"
 	"github.com/lavaorg/lua"
 )
 

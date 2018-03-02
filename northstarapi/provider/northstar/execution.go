@@ -21,14 +21,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
 	"github.com/lavaorg/northstar/rte/rtepub"
 
 	"bytes"
 
-	"github.com/lavaorg/lrt/x/lfmt"
+	"github.com/lavaorg/lrtx/lfmt"
 	invocations "github.com/lavaorg/northstar/data/invocations/client"
 	invocationModel "github.com/lavaorg/northstar/data/invocations/model"
 	snippets "github.com/lavaorg/northstar/processing/snippets/client"

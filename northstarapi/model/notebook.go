@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/northstarapi/nsapiglobal"
 )
 

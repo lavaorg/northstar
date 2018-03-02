@@ -15,7 +15,7 @@ limitations under the License.
 */
 package kafkamgr
 
-import "github.com/lavaorg/lrt/x/stats"
+import "github.com/lavaorg/lrtx/stats"
 
 var (
 	s             = stats.New("kafkamngr")

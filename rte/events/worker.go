@@ -17,8 +17,8 @@ limitations under the License.
 package events
 
 import (
-	"github.com/lavaorg/lrt/x/kafka"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/kafka"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte/rtepub"
 	"github.com/lavaorg/northstar/rte/util"
 	"github.com/orcaman/concurrent-map"

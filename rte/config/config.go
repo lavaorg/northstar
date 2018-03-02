@@ -18,9 +18,9 @@ package config
 
 import (
 	"errors"
-	"github.com/lavaorg/lrt/x/config"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/redis"
+	"github.com/lavaorg/lrtx/config"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/redis"
 	"github.com/lavaorg/northstar/servdisc"
 	"os"
 	"strings"

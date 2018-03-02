@@ -18,7 +18,7 @@ package execution
 
 import (
 	"errors"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
 	"github.com/lavaorg/northstar/dpe-stream/worker/events"

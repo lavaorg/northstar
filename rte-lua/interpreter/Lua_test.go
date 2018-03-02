@@ -17,7 +17,7 @@ limitations under the License.
 package interpreter
 
 import (
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte/repl"
 	"github.com/lavaorg/northstar/rte/rlimit"
 	"github.com/stretchr/testify/assert"

@@ -19,8 +19,8 @@ package object
 import (
 	"fmt"
 
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/northstarapi/model"
 	objectClient "github.com/lavaorg/northstar/object/client"
 	objectModel "github.com/lavaorg/northstar/object/model"

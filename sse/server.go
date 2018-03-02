@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"strings"
 )
 

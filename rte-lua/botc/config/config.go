@@ -17,7 +17,7 @@ limitations under the License.
 package config
 
 import (
-	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrtx/config"
 	rteCfg "github.com/lavaorg/northstar/rte/config"
 	"github.com/lavaorg/northstar/rte/topics"
 	"os"

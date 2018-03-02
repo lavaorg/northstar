@@ -16,8 +16,8 @@ limitations under the License.
 package main
 
 import (
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/kafkamngr/cluster"
 	kafkaMngrEnv "github.com/lavaorg/northstar/kafkamngr/env"
 	"github.com/lavaorg/northstar/kafkamngr/service"

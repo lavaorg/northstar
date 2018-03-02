@@ -19,7 +19,7 @@ package nsUtil
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lrtx/stats"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/rte-lua/util"
 	"reflect"

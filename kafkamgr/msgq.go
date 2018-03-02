@@ -17,9 +17,9 @@ package kafkamgr
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/msgq"
-	"github.com/lavaorg/lrt/x/zklib"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/msgq"
+	"github.com/lavaorg/lrtx/zklib"
 	"github.com/samuel/go-zookeeper/zk"
 	"strconv"
 )

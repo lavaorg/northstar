@@ -19,7 +19,7 @@ package model
 import (
 	"fmt"
 
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/processing/snippets/client"
 	"github.com/lavaorg/northstar/processing/snippets/model"
 )

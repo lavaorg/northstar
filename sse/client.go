@@ -24,7 +24,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"strconv"
 	"strings"
 	"sync"

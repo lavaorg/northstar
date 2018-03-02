@@ -17,9 +17,9 @@ limitations under the License.
 package nsStream
 
 import (
-	"github.com/lavaorg/lrt/x/luaext/gluamapper"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/stats"
+	"github.com/lavaorg/lrtx/luaext/gluamapper"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/stats"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/dpe-stream/master/client"
 	"github.com/lavaorg/northstar/dpe-stream/master/model"

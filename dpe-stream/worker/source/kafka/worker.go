@@ -18,8 +18,8 @@ package kafka
 
 import (
 	"fmt"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/msgq"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/msgq"
 	"github.com/lavaorg/northstar/dpe-stream/master/cluster"
 	"github.com/lavaorg/northstar/dpe-stream/worker/events"
 	"github.com/lavaorg/northstar/dpe-stream/worker/execution"

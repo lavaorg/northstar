@@ -17,7 +17,7 @@ limitations under the License.
 package execution
 
 import (
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/rte/repl"
 	"github.com/lavaorg/northstar/dpe-stream/config"
 	"github.com/lavaorg/northstar/rte-lua/interpreter"

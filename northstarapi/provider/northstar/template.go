@@ -24,8 +24,8 @@ import (
 	"time"
 
 	cMap "github.com/orcaman/concurrent-map"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	templates "github.com/lavaorg/northstar/data/templates/client"
 	templatesModel "github.com/lavaorg/northstar/data/templates/model"
 	"github.com/lavaorg/northstar/northstarapi/model"

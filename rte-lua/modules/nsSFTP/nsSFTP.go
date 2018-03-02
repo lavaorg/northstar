@@ -17,9 +17,9 @@ limitations under the License.
 package nsSFTP
 
 import (
-	"github.com/lavaorg/lrt/x/config"
-	"github.com/lavaorg/lrt/x/luaext/gluamapper"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/config"
+	"github.com/lavaorg/lrtx/luaext/gluamapper"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/lua"
 	"github.com/pkg/sftp"
 	"golang.org/x/crypto/ssh"

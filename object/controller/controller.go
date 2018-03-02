@@ -24,8 +24,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
-	"github.com/lavaorg/lrt/x/management"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/management"
+	"github.com/lavaorg/lrtx/mlog"
 	"github.com/lavaorg/northstar/object/model"
 	"github.com/lavaorg/northstar/object/s3"
 	"github.com/lavaorg/northstar/object/stats"

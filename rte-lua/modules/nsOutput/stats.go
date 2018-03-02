@@ -16,7 +16,7 @@ limitations under the License.
 
 package nsOutput
 
-import "github.com/lavaorg/lrt/x/stats"
+import "github.com/lavaorg/lrtx/stats"
 
 var (
 	nsOutput           = stats.New("nsOutput")

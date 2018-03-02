@@ -19,9 +19,9 @@ package events
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lavaorg/lrt/x/kafka"
-	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/lrt/x/service_master"
+	"github.com/lavaorg/lrtx/kafka"
+	"github.com/lavaorg/lrtx/mlog"
+	"github.com/lavaorg/lrtx/service_master"
 	"github.com/lavaorg/northstar/rte-lua/interpreter"
 	"github.com/lavaorg/northstar/rte/config"
 	"github.com/lavaorg/northstar/rte/rlimit"

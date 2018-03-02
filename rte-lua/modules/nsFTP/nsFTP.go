@@ -19,7 +19,7 @@ package nsFTP
 import (
 	"bytes"
 	"github.com/jlaffaye/ftp"
-	"github.com/lavaorg/lrt/x/config"
+	"github.com/lavaorg/lrtx/config"
 	"github.com/lavaorg/lua"
 )
 

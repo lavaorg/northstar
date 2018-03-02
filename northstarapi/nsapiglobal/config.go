@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/lavaorg/lrt/env"
-	"github.com/lavaorg/lrt/x/middleware"
-	"github.com/lavaorg/lrt/x/mlog"
+	"github.com/lavaorg/lrtx/middleware"
+	"github.com/lavaorg/lrtx/mlog"
 	"os"
 )
 
