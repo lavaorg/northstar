@@ -25,14 +25,14 @@ import (
 	"github.com/lavaorg/northstar/data/invocations/client"
 	"github.com/lavaorg/northstar/data/invocations/model"
 	"github.com/lavaorg/northstar/rte/config"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 	"github.com/lavaorg/northstar/rte/stats"
 )
 
 type SnippetManager interface {
 	SnippetStart(accountId string, start *SnippetStartEvent) (string, error)
 	SnippetStop(accountId string, partition int, stop *SnippetStopEvent) error
-	SnippetOutput(accountId string, start *SnippetStartEvent, output *repl.Output) error
+	SnippetOutput(accountId string, start *SnippetStartEvent, output *rtepub.Output) error
 	UpdateInvocation(accountId string, invocationId string, partition int32, status string) error
 }
 
@@ -96,7 +96,7 @@ func (n *SnippetManagerService) SnippetStart(accountId string,
 		URL:      start.URL,
 		Code:     start.Code,
 		Callback: start.Callback,
-		Status:   SNIPPET_START_EVENT}
+		Status:   rtepub.SNIPPET_START_EVENT}
 
 	invocationId, mErr := n.invocationClient.AddInvocation(accountId, invocation)
 	if mErr != nil {
@@ -179,7 +179,7 @@ func (service *SnippetManagerService) SnippetStop(accountId string,
 
 func (service *SnippetManagerService) SnippetOutput(accountId string,
 	startEvent *SnippetStartEvent,
-	output *repl.Output) error {
+	output *rtepub.Output) error {
 	timer := stats.RTE.NewTimer("SnippetOutputTimer")
 
 	// Store output in data service
@@ -246,7 +246,7 @@ func (service *SnippetManagerService) SnippetOutput(accountId string,
 func (event *SnippetManagerService) storeInvocationOutput(accountId string,
 	invocationId string,
 	snippetId string,
-	output *repl.Output) error {
+	output *rtepub.Output) error {
 	timer := stats.RTE.NewTimer("StoreInvocationOutputTimer")
 
 	invocation := &model.InvocationData{

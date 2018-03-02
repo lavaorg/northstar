@@ -20,8 +20,8 @@ import (
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/lua"
 	"github.com/lavaorg/northstar/rte/config"
-	"github.com/lavaorg/northstar/rte/repl"
 	"github.com/lavaorg/northstar/rte/rlimit"
+	"github.com/lavaorg/northstar/rte/rtepub"
 	"strings"
 	"time"
 )
@@ -31,11 +31,11 @@ type LuaInterpreter struct {
 	rLimit rlimit.ResourceLimit
 }
 
-func NewLuaInterpreter(rLimit rlimit.ResourceLimit) repl.Interpreter {
+func NewLuaInterpreter(rLimit rlimit.ResourceLimit) rtepub.Interpreter {
 	return &LuaInterpreter{rLimit: rLimit}
 }
 
-func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
+func (i *LuaInterpreter) DoREPL(input *rtepub.Input) *rtepub.Output {
 	timer := Lua.NewTimer("DoREPLTimer")
 	startedOn := time.Now()
 	mlog.Debug("Running main: %s, code: %s, args: %s, timeout: %d, memory: %v, accountId: %s, "+
@@ -47,8 +47,8 @@ func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
 		mlog.Error("Failed to create state: %v", err.Error())
 		timer.Stop()
 		ErrDoREPL.Incr()
-		return &repl.Output{StartedOn: startedOn,
-			Status:     repl.STATE_CREATE_FAILED,
+		return &rtepub.Output{StartedOn: startedOn,
+			Status:     rtepub.STATE_CREATE_FAILED,
 			ErrorDescr: err.Error()}
 	}
 
@@ -62,8 +62,8 @@ func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
 			mlog.Error("Failed to start resource monitoring: %v", err.Error())
 			timer.Stop()
 			ErrDoREPL.Incr()
-			return &repl.Output{StartedOn: startedOn,
-				Status:     repl.START_MONITORING_FAILED,
+			return &rtepub.Output{StartedOn: startedOn,
+				Status:     rtepub.START_MONITORING_FAILED,
 				ErrorDescr: err.Error()}
 		}
 
@@ -89,8 +89,8 @@ func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
 		i.rLimit.StopMonitoring()
 		timer.Stop()
 		ErrDoREPL.Incr()
-		execError := repl.GetExecutionError(err, rLimitErr)
-		return &repl.Output{StartedOn: startedOn,
+		execError := rtepub.GetExecutionError(err, rLimitErr)
+		return &rtepub.Output{StartedOn: startedOn,
 			Status:     execError.Status,
 			ErrorDescr: execError.Description}
 	}
@@ -109,8 +109,8 @@ func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
 		i.rLimit.StopMonitoring()
 		timer.Stop()
 		ErrDoREPL.Incr()
-		execError := repl.GetExecutionError(err, rLimitErr)
-		return &repl.Output{StartedOn: startedOn,
+		execError := rtepub.GetExecutionError(err, rLimitErr)
+		return &rtepub.Output{StartedOn: startedOn,
 			FinishedOn: finishedOn,
 			Stdout:     stdout,
 			Status:     execError.Status,
@@ -127,13 +127,13 @@ func (i *LuaInterpreter) DoREPL(input *repl.Input) *repl.Output {
 	timer.Stop()
 	DoREPL.Incr()
 
-	output := &repl.Output{
+	output := &rtepub.Output{
 		StartedOn:   startedOn,
 		FinishedOn:  finishedOn,
 		ElapsedTime: elapsedTime,
 		Stdout:      stdout,
 		Result:      result,
-		Status:      repl.SNIPPET_RUN_FINISHED,
+		Status:      rtepub.SNIPPET_RUN_FINISHED,
 		ErrorDescr:  ""}
 	mlog.Debug("REPL output: %v", output)
 	return output

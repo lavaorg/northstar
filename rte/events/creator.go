@@ -19,6 +19,8 @@ package events
 import (
 	"encoding/json"
 	"time"
+
+	"github.com/lavaorg/northstar/rte/rtepub"
 )
 
 type EventsCreator struct{}
@@ -34,7 +36,7 @@ func (e EventsCreator) CreateStartEvent(accountId string,
 		return nil, err
 	}
 
-	rteEvent, err := e.createEvent(SNIPPET_START_EVENT, accountId, data)
+	rteEvent, err := e.createEvent(rtepub.SNIPPET_START_EVENT, accountId, data)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +51,7 @@ func (e EventsCreator) CreateStopEvent(accountId string,
 		return nil, err
 	}
 
-	rteEvent, err := e.createEvent(SNIPPET_STOP_EVENT, accountId, data)
+	rteEvent, err := e.createEvent(rtepub.SNIPPET_STOP_EVENT, accountId, data)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +67,7 @@ func (e EventsCreator) CreateOutputEvent(accountId string,
 		return nil, err
 	}
 
-	rteEvent, err := e.createEvent(SNIPPET_OUTPUT_EVENT, accountId, data)
+	rteEvent, err := e.createEvent(rtepub.SNIPPET_OUTPUT_EVENT, accountId, data)
 	if err != nil {
 		return nil, err
 	}

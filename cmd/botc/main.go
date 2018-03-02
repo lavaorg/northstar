@@ -18,12 +18,22 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
+
+	"github.com/lavaorg/lrt/x/config"
 	marathonClient "github.com/lavaorg/lrt/x/marathon"
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/kafkamgr"
-	"github.com/lavaorg/northstar/rte-lua/botc/config"
-	"os"
-	"strconv"
+	rteCfg "github.com/lavaorg/northstar/rte/config"
+	"github.com/lavaorg/northstar/rte/topics"
+)
+
+var (
+	RTEBotcAppName        = os.Getenv("MARATHON_APP_ID")
+	RTEServiceName, _     = config.GetString("RTE_SERVICE_NAME", rteCfg.RTE_SERVICE_NAME)
+	RTELuaCtrlTopic, _    = config.GetString("RTE_LUA_CTRL_TOPIC", topics.RTE_LUA_CTRL_TOPIC)
+	RTELuaMarathonJson, _ = config.GetString("RTE_LUA_MARATHON_JSON", "")
 )
 
 func main() {
@@ -40,7 +50,7 @@ func main() {
 		os.Exit(-1)
 	}
 
-	app, err := marathonClient.GetApplicationFromJson(config.RTELuaMarathonJson)
+	app, err := marathonClient.GetApplicationFromJson(RTELuaMarathonJson)
 	if err != nil {
 		mlog.Error("Failed to get application from json: %v", err)
 		os.Exit(-1)
@@ -62,12 +72,12 @@ func main() {
 		*app.Instances, nWorkers, nPartitions)
 
 	topic := kafkamgr.Topic{Partitions: nPartitions}
-	mErr := kClient.UpdateTopic(config.RTEServiceName, config.RTELuaCtrlTopic, &topic)
+	mErr := kClient.UpdateTopic(RTEServiceName, RTELuaCtrlTopic, &topic)
 	if mErr != nil {
 		mlog.Error("Failed to update topic: %s", mErr.Error())
 	}
 
-	err = mClient.DeleteApplication(config.RTEBotcAppName)
+	err = mClient.DeleteApplication(RTEBotcAppName)
 	if err != nil {
 		mlog.Error("Failed to cleanup myself: %v", err)
 	}

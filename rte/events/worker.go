@@ -19,7 +19,7 @@ package events
 import (
 	"github.com/lavaorg/lrt/x/kafka"
 	"github.com/lavaorg/lrt/x/mlog"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 	"github.com/lavaorg/northstar/rte/util"
 	"github.com/orcaman/concurrent-map"
 	"os"
@@ -30,7 +30,7 @@ type SnippetRunWorker struct {
 	accountId      string
 	stopOffset     int64
 	workers        cmap.ConcurrentMap
-	interpreter    repl.Interpreter
+	interpreter    rtepub.Interpreter
 	snippetManager SnippetManager
 	startEvent     *SnippetStartEvent
 	processMsg     *kafka.ProcessMsg
@@ -40,7 +40,7 @@ func NewSnippetRunWorker(accountId string,
 	workers cmap.ConcurrentMap,
 	snippetManager SnippetManager,
 	startEvent *SnippetStartEvent,
-	interpreter repl.Interpreter,
+	interpreter rtepub.Interpreter,
 	processMsg *kafka.ProcessMsg) *SnippetRunWorker {
 	mlog.Debug("NewSnippetRunWorker")
 	return &SnippetRunWorker{accountId: accountId,
@@ -58,7 +58,7 @@ func (worker *SnippetRunWorker) Run(workRoutine int) error {
 	err := worker.snippetManager.UpdateInvocation(worker.accountId,
 		worker.startEvent.InvocationId,
 		worker.processMsg.Event.Partition,
-		SNIPPET_RUNNING_EVENT)
+		rtepub.SNIPPET_RUNNING_EVENT)
 	if err != nil {
 		mlog.Error("UpdateInvocation failed: %v", err)
 		return err
@@ -70,7 +70,7 @@ func (worker *SnippetRunWorker) Run(workRoutine int) error {
 		return err
 	}
 
-	runSnippet := repl.Input{AccountId: worker.accountId,
+	runSnippet := rtepub.Input{AccountId: worker.accountId,
 		Id:           worker.startEvent.SnippetId,
 		InvocationId: worker.startEvent.InvocationId,
 		Runtime:      worker.startEvent.Runtime,
@@ -116,7 +116,7 @@ func (worker *SnippetRunWorker) cleanup(status string) {
 
 	worker.workers.Remove(worker.startEvent.InvocationId)
 
-	if status == repl.SNIPPET_OUT_OF_MEMORY {
+	if status == rtepub.SNIPPET_OUT_OF_MEMORY {
 		mlog.Debug("Terminating process because of status: %v", status)
 		os.Exit(1)
 	}

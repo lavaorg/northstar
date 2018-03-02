@@ -19,7 +19,7 @@ package main
 import (
 	"github.com/lavaorg/lrt/x/mlog"
 	"github.com/lavaorg/northstar/rte"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 	"os"
 )
 
@@ -43,7 +43,7 @@ func main() {
 			os.Exit(-1)
 		}
 	case "worker":
-		err := rte.InitRTE(repl.Lua)
+		err := rte.InitRTE(rtepub.Lua)
 		if err != nil {
 			mlog.Error("Failed to init worker: %v", err)
 			os.Exit(-1)

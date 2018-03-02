@@ -35,7 +35,7 @@ type EventHandler struct {
 	workers        cmap.ConcurrentMap
 	snippetManager SnippetManager
 	serviceMaster  *service_master.ServiceMaster
-	interpreter    repl.Interpreter
+	interpreter    rtepub.Interpreter
 	ctrlTopic      string
 }
 
@@ -119,7 +119,7 @@ func (handler *EventHandler) processMessage(msg *kafka.ProcessMsg) error {
 
 	mlog.Debug("Received processing event: %s", rteEvent.Event)
 	switch rteEvent.Event {
-	case SNIPPET_START_EVENT:
+	case rtepub.SNIPPET_START_EVENT:
 		var startEvent SnippetStartEvent
 		err := json.Unmarshal(rteEvent.Data, &startEvent)
 		if err != nil {
@@ -138,7 +138,7 @@ func (handler *EventHandler) processMessage(msg *kafka.ProcessMsg) error {
 			mlog.Error("Dispatch failed: %v", err)
 			return err
 		}
-	case SNIPPET_STOP_EVENT:
+	case rtepub.SNIPPET_STOP_EVENT:
 		mlog.Debug("Stop event received")
 		var stopEvent SnippetStopEvent
 		err := json.Unmarshal(rteEvent.Data, &stopEvent)
@@ -182,9 +182,9 @@ func (handler *EventHandler) stopWorker(invocationId string) error {
 	return nil
 }
 
-func initInterpreter(runtime string) (repl.Interpreter, error) {
+func initInterpreter(runtime string) (rtepub.Interpreter, error) {
 	switch runtime {
-	case repl.Lua:
+	case rtepub.Lua:
 		return interpreter.NewLuaInterpreter(rlimit.NewLuaResourceLimit()), nil
 	default:
 		return nil, fmt.Errorf("Unknown runtime received: %v", runtime)

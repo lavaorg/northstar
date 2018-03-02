@@ -18,14 +18,14 @@ package topics
 
 import (
 	"fmt"
-	"github.com/lavaorg/northstar/rte/repl"
+	"github.com/lavaorg/northstar/rte/rtepub"
 )
 
 func GetCtrlTopicByType(rteType string) (string, error) {
 	switch rteType {
-	case repl.R:
+	case rtepub.R:
 		return RTE_R_CTRL_TOPIC, nil
-	case repl.Lua:
+	case rtepub.Lua:
 		return RTE_LUA_CTRL_TOPIC, nil
 	default:
 		return "", fmt.Errorf("Wrong RTE type specified: %s", rteType)

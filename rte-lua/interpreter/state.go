@@ -18,6 +18,7 @@ package interpreter
 
 import (
 	"context"
+	"github.com/lavaorg/gopher-luar"
 	"github.com/lavaorg/lrt/x/config"
 	"github.com/lavaorg/lrt/x/luaext/extended"
 	"github.com/lavaorg/lrt/x/luaext/gluahttp"
@@ -34,8 +35,7 @@ import (
 	"github.com/lavaorg/northstar/rte-lua/modules/nsStream"
 	"github.com/lavaorg/northstar/rte-lua/modules/nsUtil"
 	pkgCfg "github.com/lavaorg/northstar/rte/config"
-	"github.com/lavaorg/northstar/rte/repl"
-	"github.com/lavaorg/gopher-luar"
+	"github.com/lavaorg/northstar/rte/rtepub"
 	"time"
 )
 
@@ -62,7 +62,7 @@ type State struct {
 	NSQL     *nsQL.NsQLModule
 }
 
-func CreateState(input *repl.Input) (*State, error) {
+func CreateState(input *rtepub.Input) (*State, error) {
 	luaState := lua.NewState(lua.Options{SkipOpenLibs: true, IncludeGoStackTrace: false})
 
 	ctx, cancel := createContext(input.Timeout)
